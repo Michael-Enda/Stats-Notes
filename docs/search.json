@@ -1,66 +1,24 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "var_test.html",
+    "href": "var_test.html",
+    "title": "Var Test",
     "section": "",
-    "text": "About this site"
+    "text": "This test needs to get finished"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Index",
+    "objectID": "var_test.html#wip",
+    "href": "var_test.html#wip",
+    "title": "Var Test",
     "section": "",
-    "text": "flowchart TD\n  subgraph Data\n    subgraph Independent\n      icon[Continuous]\n      icat[Categorical]\n    end\n    subgraph Dependent\n      dcon[Continuous]\n      dcat[Categorical]\n    end\n  end\n  subgraph Tests\n    icat & dcon --&gt; t{T-tests}\n    icat & dcat --&gt; c{Chi-Square}\n    icon & dcon --&gt; r{Regression}\n    icon & dcat --&gt; l{Logistic Regression} \n  end"
+    "text": "This test needs to get finished"
   },
   {
-    "objectID": "index.html#todo",
-    "href": "index.html#todo",
-    "title": "Index",
-    "section": "TODO",
-    "text": "TODO\n\nAssumptions of each test\n\nT-test\n\nData is randomly selected from the population\n\nAssume True\n\nObservations are independent from each other\n\nAssume True\n\nData is normal / sample size is large enough.\n\nShapiro-Wilk normality test\n\nEqual variance in response data\n\nvar.test - H_o: Variance is equal\n\n\nChi-Square\n\nNo assumptions made about the data?\n\nANOVA/MANOVA\n\nEach level’s response variables are normally distributed\n\nShapiro-Wilk normality test\n\nNull hypothesis - Data is normally distributed\n\n\nEach level’s response data has the same variance\n\nLeveneTest\n\nH_0 - Variance is equal\n\n\nSamples must be independent from each other\n\nAssume True\n\n\nPost-hoc tests\n\nTukeyHSD\n\nSame as T-test/ANOVA\nData sets must be of equal length\n\n\nLinear Regression\n\nLinear relationship between variable\n\nPlot data and look to see if the data is linear\n\nThere is constant variance of the errors (error are homescedastic)\n\nncvTest - H_0 - errors are homoscedastic\n\nError are statistically independent\n\nPlot: x = fitted values, y = residuals (error), line y = 0\nLook For patterns\n\nError are normally distributed\n\nqqPlot - Points are within the bounded area.\n\nWhat do the output numbers mean?\n\nshapiro.test(residuals) - H_0 - Variance is equal"
-  },
-  {
-    "objectID": "index.html#deciding-what-test-to-run",
-    "href": "index.html#deciding-what-test-to-run",
-    "title": "Index",
-    "section": "",
-    "text": "flowchart TD\n  subgraph Data\n    subgraph Independent\n      icon[Continuous]\n      icat[Categorical]\n    end\n    subgraph Dependent\n      dcon[Continuous]\n      dcat[Categorical]\n    end\n  end\n  subgraph Tests\n    icat & dcon --&gt; t{T-tests}\n    icat & dcat --&gt; c{Chi-Square}\n    icon & dcon --&gt; r{Regression}\n    icon & dcat --&gt; l{Logistic Regression} \n  end"
-  },
-  {
-    "objectID": "index.html#unit-1",
-    "href": "index.html#unit-1",
-    "title": "Index",
-    "section": "Unit 1",
-    "text": "Unit 1"
-  },
-  {
-    "objectID": "index.html#unit-2",
-    "href": "index.html#unit-2",
-    "title": "Index",
-    "section": "Unit 2",
-    "text": "Unit 2"
-  },
-  {
-    "objectID": "ttests.html",
-    "href": "ttests.html",
-    "title": "T-tests",
-    "section": "",
-    "text": "To run a T-test your data needs to have the following characteristics:\n\n\n\n\nCategorical data with one factor which has two levels. If the data you have has more than one factor, or two levels, then you need to run either a ANOVA, or MANOVA, test.\n\n\n\nCategorical data with one factor with one level, along with a comparison value.\n\n\n\n\nThe dependent variable must be a continuous variable."
-  },
-  {
-    "objectID": "ttests.html#data-types",
-    "href": "ttests.html#data-types",
-    "title": "T-tests",
-    "section": "",
-    "text": "To run a T-test your data needs to have the following characteristics:\n\n\n\n\nCategorical data with one factor which has two levels. If the data you have has more than one factor, or two levels, then you need to run either a ANOVA, or MANOVA, test.\n\n\n\nCategorical data with one factor with one level, along with a comparison value.\n\n\n\n\nThe dependent variable must be a continuous variable."
-  },
-  {
-    "objectID": "ttests.html#test-assumptions",
-    "href": "ttests.html#test-assumptions",
-    "title": "T-tests",
-    "section": "Test Assumptions",
-    "text": "Test Assumptions\nTo successfully run a T-test make sure that the data meets all of the following assumptions. - [ ] Data is randomly selected from the population - Assume True - [ ] Observations are independent from each other - Assume True - [ ] Data is normal / sample size is large enough. - Shapiro-Wilk normality test - [ ] Equal variance in response data - [ ] var.test - H_o: Variance is equal\n\nData is randomly sampled\nThis is critical for all statistical tests, it ensure that data points are independent from each other. You can assume this true when given data. It is important to keep this in mind if you are collecting your own data though.\n\n\nObservation are independent from each other\nAssume True\n\n\nResponse data is normal\nThis assumption can be met in one of two ways:\n\nCentral limit theorem\nThanks to the Central Limit Theorem, if each level in your independent data has greater than 30 points (N &gt; 30) then you can assume response data is normal, even if the Shapiro Wilks returns otherwise.\n\n\nShapiro Wilks test\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nshapiro.test\nData is normally distributed\nData is NOT normally distributed\np.value\nN/A\n\n\n\nFor a more complete explanation of the Shapiro Wilks test go to here\n\n\n\nEqual variance in response data\nThis is only if you’re attempting to run a two-sample T-test where you need to compare two different levels within a factor.\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nvar.test\nVariance is equal\nVariance is NOT equal\np.value, conf.int\nN/A\n\n\n\nFor a more complete explanation for var.test go to here"
+    "objectID": "var_test.html#cheat-sheet-table",
+    "href": "var_test.html#cheat-sheet-table",
+    "title": "Var Test",
+    "section": "CHEAT SHEET table",
+    "text": "CHEAT SHEET table\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nvar.test\nVariance is equal\nVariance is NOT equal\np.value, conf.int\nN/A"
   },
   {
     "objectID": "shapiro_wilks.html",
@@ -84,25 +42,18 @@
     "text": "CHEAT SHEET TABLE\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nshapiro.test\nData is normally distributed\nData is NOT normally distributed\np.value\nN/A"
   },
   {
-    "objectID": "var_test.html",
-    "href": "var_test.html",
-    "title": "Var Test",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Index",
     "section": "",
-    "text": "This test needs to get finished"
+    "text": "flowchart TD\n  subgraph Data\n    subgraph Independent\n      icon[Continuous]\n      icat[Categorical]\n    end\n    subgraph Dependent\n      dcon[Continuous]\n      dcat[Categorical]\n    end\n  end\n  subgraph Tests\n    icat & dcon --&gt; t{T-tests}\n    icat & dcat --&gt; c{Chi-Square}\n    icon & dcon --&gt; r{Regression}\n    icon & dcat --&gt; l{Logistic Regression} \n  end"
   },
   {
-    "objectID": "var_test.html#wip",
-    "href": "var_test.html#wip",
-    "title": "Var Test",
+    "objectID": "index.html#deciding-what-test-to-run",
+    "href": "index.html#deciding-what-test-to-run",
+    "title": "Index",
     "section": "",
-    "text": "This test needs to get finished"
-  },
-  {
-    "objectID": "var_test.html#cheat-sheet-table",
-    "href": "var_test.html#cheat-sheet-table",
-    "title": "Var Test",
-    "section": "CHEAT SHEET table",
-    "text": "CHEAT SHEET table\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nvar.test\nVariance is equal\nVariance is NOT equal\np.value, conf.int\nN/A"
+    "text": "flowchart TD\n  subgraph Data\n    subgraph Independent\n      icon[Continuous]\n      icat[Categorical]\n    end\n    subgraph Dependent\n      dcon[Continuous]\n      dcat[Categorical]\n    end\n  end\n  subgraph Tests\n    icat & dcon --&gt; t{T-tests}\n    icat & dcat --&gt; c{Chi-Square}\n    icon & dcon --&gt; r{Regression}\n    icon & dcat --&gt; l{Logistic Regression} \n  end"
   },
   {
     "objectID": "index.html#main-tests",
@@ -110,5 +61,47 @@
     "title": "Index",
     "section": "Main Tests",
     "text": "Main Tests\n\nT-Tests"
+  },
+  {
+    "objectID": "index.html#unit-2",
+    "href": "index.html#unit-2",
+    "title": "Index",
+    "section": "Unit 2",
+    "text": "Unit 2"
+  },
+  {
+    "objectID": "index.html#todo",
+    "href": "index.html#todo",
+    "title": "Index",
+    "section": "TODO",
+    "text": "TODO\n\nAssumptions of each test\n\nT-test\n\nData is randomly selected from the population\n\nAssume True\n\nObservations are independent from each other\n\nAssume True\n\nData is normal / sample size is large enough.\n\nShapiro-Wilk normality test\n\nEqual variance in response data\n\nvar.test - H_o: Variance is equal\n\n\nChi-Square\n\nNo assumptions made about the data?\n\nANOVA/MANOVA\n\nEach level’s response variables are normally distributed\n\nShapiro-Wilk normality test\n\nNull hypothesis - Data is normally distributed\n\n\nEach level’s response data has the same variance\n\nLeveneTest\n\nH_0 - Variance is equal\n\n\nSamples must be independent from each other\n\nAssume True\n\n\nPost-hoc tests\n\nTukeyHSD\n\nSame as T-test/ANOVA\nData sets must be of equal length\n\n\nLinear Regression\n\nLinear relationship between variable\n\nPlot data and look to see if the data is linear\n\nThere is constant variance of the errors (error are homescedastic)\n\nncvTest - H_0 - errors are homoscedastic\n\nError are statistically independent\n\nPlot: x = fitted values, y = residuals (error), line y = 0\nLook For patterns\n\nError are normally distributed\n\nqqPlot - Points are within the bounded area.\n\nWhat do the output numbers mean?\n\nshapiro.test(residuals) - H_0 - Variance is equal"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "ttests.html",
+    "href": "ttests.html",
+    "title": "T-tests",
+    "section": "",
+    "text": "To run a T-test your data needs to have the following characteristics:\n\n\n\n\nCategorical data with one factor which has two levels. If the data you have has more than one factor, or two levels, then you need to run either a ANOVA, or MANOVA, test.\n\n\n\nCategorical data with one factor with one level, along with a comparison value.\n\n\n\n\nThe dependent variable must be a continuous variable."
+  },
+  {
+    "objectID": "ttests.html#data-types",
+    "href": "ttests.html#data-types",
+    "title": "T-tests",
+    "section": "",
+    "text": "To run a T-test your data needs to have the following characteristics:\n\n\n\n\nCategorical data with one factor which has two levels. If the data you have has more than one factor, or two levels, then you need to run either a ANOVA, or MANOVA, test.\n\n\n\nCategorical data with one factor with one level, along with a comparison value.\n\n\n\n\nThe dependent variable must be a continuous variable."
+  },
+  {
+    "objectID": "ttests.html#test-assumptions",
+    "href": "ttests.html#test-assumptions",
+    "title": "T-tests",
+    "section": "Test Assumptions",
+    "text": "Test Assumptions\nTo successfully run a T-test make sure that the data meets all of the following assumptions. - [ ] Data is randomly selected from the population - Assume True - [ ] Observations are independent from each other - Assume True - [ ] Data is normal / sample size is large enough. - Shapiro-Wilk normality test - [ ] Equal variance in response data - [ ] var.test - H_o: Variance is equal\n\nData is randomly sampled\nThis is critical for all statistical tests, it ensure that data points are independent from each other. You can assume this true when given data. It is important to keep this in mind if you are collecting your own data though.\n\n\nObservation are independent from each other\nAssume True\n\n\nResponse data is normal\nThis assumption can be met in one of two ways:\n\nCentral limit theorem\nThanks to the Central Limit Theorem, if each level in your independent data has greater than 30 points (N &gt; 30) then you can assume response data is normal, even if the Shapiro Wilks returns otherwise.\n\n\nShapiro Wilks test\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nshapiro.test\nData is normally distributed\nData is NOT normally distributed\np.value\nN/A\n\n\n\nFor a more complete explanation of the Shapiro Wilks test go to here\n\n\n\nEqual variance in response data\nThis is only if you’re attempting to run a two-sample T-test where you need to compare two different levels within a factor.\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nvar.test\nVariance is equal\nVariance is NOT equal\np.value, conf.int\nN/A\n\n\n\nFor a more complete explanation for var.test go to here"
   }
 ]

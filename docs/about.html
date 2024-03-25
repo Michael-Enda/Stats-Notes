@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Michael Enda">
-<meta name="dcterms.date" content="2024-03-25">
 
-<title>. - T-tests</title>
+<title>. - About</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,35 +67,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -124,11 +93,11 @@ window.Quarto = {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link active" href="./about.html" aria-current="page"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./ttests.html" aria-current="page"> 
+    <a class="nav-link" href="./ttests.html"> 
 <span class="menu-text">T-tests</span></a>
   </li>  
 </ul>
@@ -143,50 +112,21 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#data-types" id="toc-data-types" class="nav-link active" data-scroll-target="#data-types">Data Types</a>
-  <ul class="collapse">
-  <li><a href="#independent-variable" id="toc-independent-variable" class="nav-link" data-scroll-target="#independent-variable">Independent Variable</a></li>
-  <li><a href="#dependent-variable" id="toc-dependent-variable" class="nav-link" data-scroll-target="#dependent-variable">Dependent Variable</a></li>
-  </ul></li>
-  <li><a href="#test-assumptions" id="toc-test-assumptions" class="nav-link" data-scroll-target="#test-assumptions">Test Assumptions</a>
-  <ul class="collapse">
-  <li><a href="#data-is-randomly-sampled" id="toc-data-is-randomly-sampled" class="nav-link" data-scroll-target="#data-is-randomly-sampled">Data is randomly sampled</a></li>
-  <li><a href="#observation-are-independent-from-each-other" id="toc-observation-are-independent-from-each-other" class="nav-link" data-scroll-target="#observation-are-independent-from-each-other">Observation are independent from each other</a></li>
-  <li><a href="#response-data-is-normal" id="toc-response-data-is-normal" class="nav-link" data-scroll-target="#response-data-is-normal">Response data is normal</a></li>
-  <li><a href="#equal-variance-in-response-data" id="toc-equal-variance-in-response-data" class="nav-link" data-scroll-target="#equal-variance-in-response-data">Equal variance in response data</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">T-tests</h1>
+<h1 class="title">About</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Michael Enda </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">March 25, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -196,110 +136,9 @@ window.Quarto = {
 </header>
 
 
-<section id="data-types" class="level2">
-<h2 class="anchored" data-anchor-id="data-types">Data Types</h2>
-<p>To run a T-test your data needs to have the following characteristics:</p>
-<section id="independent-variable" class="level3">
-<h3 class="anchored" data-anchor-id="independent-variable">Independent Variable</h3>
-<section id="two-sample-t-test" class="level4">
-<h4 class="anchored" data-anchor-id="two-sample-t-test">Two-Sample T-test</h4>
-<p><strong>Categorical</strong> data with one <strong>factor</strong> which has two <strong>levels</strong>. If the data you have has more than one factor, or two levels, then you need to run either a <a href="./anova.html">ANOVA</a>, or <a href="./manova.html">MANOVA</a>, test.</p>
-</section>
-<section id="one-sample-t-test" class="level4">
-<h4 class="anchored" data-anchor-id="one-sample-t-test">One-sample t-test</h4>
-<p><strong>Categorical</strong> data with one <strong>factor</strong> with one <strong>level</strong>, along with a comparison value.</p>
-</section>
-</section>
-<section id="dependent-variable" class="level3">
-<h3 class="anchored" data-anchor-id="dependent-variable">Dependent Variable</h3>
-<p>The dependent variable must be a <strong>continuous</strong> variable.</p>
-</section>
-</section>
-<section id="test-assumptions" class="level2">
-<h2 class="anchored" data-anchor-id="test-assumptions">Test Assumptions</h2>
-<p>To successfully run a T-test make sure that the data meets all of the following assumptions. - [ ] Data is randomly selected from the population - Assume True - [ ] Observations are independent from each other - Assume True - [ ] Data is normal / sample size is large enough. - Shapiro-Wilk normality test - [ ] Equal variance in response data - [ ] <code>var.test</code> - H_o: Variance is equal</p>
-<section id="data-is-randomly-sampled" class="level3">
-<h3 class="anchored" data-anchor-id="data-is-randomly-sampled">Data is randomly sampled</h3>
-<p>This is critical for all statistical tests, it ensure that data points are independent from each other. You can <strong>assume this true</strong> when given data. It is important to keep this in mind if you are collecting your own data though.</p>
-</section>
-<section id="observation-are-independent-from-each-other" class="level3">
-<h3 class="anchored" data-anchor-id="observation-are-independent-from-each-other">Observation are independent from each other</h3>
-<p><strong>Assume True</strong></p>
-</section>
-<section id="response-data-is-normal" class="level3">
-<h3 class="anchored" data-anchor-id="response-data-is-normal">Response data is normal</h3>
-<p>This assumption can be met in one of two ways:</p>
-<section id="central-limit-theorem" class="level4">
-<h4 class="anchored" data-anchor-id="central-limit-theorem">Central limit theorem</h4>
-<p>Thanks to the Central Limit Theorem, if each level in your independent data has <strong>greater than 30</strong> points (N &gt; 30) then you can <strong>assume response data is normal</strong>, even if the <a href="#shapiro-wilks-test">Shapiro Wilks</a> returns otherwise.</p>
-</section>
-<section id="shapiro-wilks-test" class="level4">
-<h4 class="anchored" data-anchor-id="shapiro-wilks-test">Shapiro Wilks test</h4>
-<table class="table">
-<colgroup>
-<col style="width: 21%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 19%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>R Function</th>
-<th><span class="math inline">\(H_0\)</span></th>
-<th><span class="math inline">\(H_A\)</span></th>
-<th>Output Vars</th>
-<th>Misc</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>shapiro.test</code></td>
-<td>Data <strong>is</strong> normally distributed</td>
-<td>Data <strong>is NOT</strong> normally distributed</td>
-<td><code>p.value</code></td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<p>For a more complete explanation of the Shapiro Wilks test go to <a href="./shapiro_wilks.html">here</a></p>
-</section>
-</section>
-<section id="equal-variance-in-response-data" class="level3">
-<h3 class="anchored" data-anchor-id="equal-variance-in-response-data">Equal variance in response data</h3>
-<p>This is only if you’re attempting to run a two-sample T-test where you need to compare two different levels within a factor.</p>
-<table class="table">
-<colgroup>
-<col style="width: 21%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 19%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>R Function</th>
-<th><span class="math inline">\(H_0\)</span></th>
-<th><span class="math inline">\(H_A\)</span></th>
-<th>Output Vars</th>
-<th>Misc</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>var.test</code></td>
-<td>Variance is equal</td>
-<td>Variance is <strong>NOT</strong> equal</td>
-<td><code>p.value</code>, <code>conf.int</code></td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
-<p>For a more complete explanation for <code>var.test</code> go to <a href="./var_test.qmd">here</a></p>
+<p>About this site</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
