@@ -1,0 +1,15 @@
+---
+title: Var Test
+date: 2024-03-25
+tags: []
+---
+
+## WIP 
+
+This test needs to get finished
+
+## CHEAT SHEET table
+
+| R Function    | $H_0$     | $H_A$     | Output Vars    | Misc    |
+|---------------- | --------------- | --------------- | --------------- | --------------- |
+| `var.test`    | Variance is equal    | Variance is **NOT** equal | `p.value`, `conf.int`   | N/A   |

@@ -1,0 +1,56 @@
+---
+title: "Index"
+---
+
+## Deciding What Test to Run
+
+```{mermaid}
+%%| file: mermaid_diagrams/test_choice_flowchart.mmd
+```
+
+## Main Tests
+
+- [T-Tests](/ttests.qmd)
+
+## Unit 2
+
+## TODO
+
+- Assumptions of each test
+	- [x] T-test
+		- [x] Data is randomly selected from the population
+			- Assume True
+		- [x] Observations are independent from each other
+			- Assume True
+		- [x] Data is normal / sample size is large enough.
+			- Shapiro-Wilk normality test
+		- [x] Equal variance in response data
+			- [x] `var.test` - H_o: Variance is equal
+	- [ ] Chi-Square
+		- [ ] No assumptions made about the data?
+	- [ ] ANOVA/MANOVA
+		- [ ] Each level's response variables are normally distributed
+			- [ ] Shapiro-Wilk normality test
+				- [ ] Null hypothesis - Data is normally distributed
+		- [ ] Each level's response data has the same variance
+			- LeveneTest
+				- H_0 - Variance is equal
+		- [ ] Samples must be independent from each other
+			- Assume True
+	- [ ] Post-hoc tests
+		- [ ] TukeyHSD
+			- [ ] Same as T-test/ANOVA
+			- [ ] Data sets must be of equal length
+	- [ ] Linear Regression
+		- [ ] Linear relationship between variable
+			- [ ] Plot data and look to see if the data is linear
+		- [ ] There is constant variance of the errors (error are homescedastic)
+			- [ ] `ncvTest` - H_0 - errors are homoscedastic
+		- [ ] Error are statistically independent
+			- [ ] Plot: x = fitted values, y = residuals (error), line y = 0
+			- [ ] Look For patterns
+		- [ ] Error are normally distributed
+			- [ ] `qqPlot` - Points are within the bounded area.
+				- [ ] What do the output numbers mean?
+			- [ ] `shapiro.test(residuals)` - H_0 - Variance is equal
+

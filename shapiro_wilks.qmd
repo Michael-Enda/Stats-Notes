@@ -1,0 +1,17 @@
+---
+title: Shapiro Wilks Test for Normality
+date: 2024-03-25
+author: Michael Enda
+---
+
+## WIP
+
+This page is under construction.
+
+## CHEAT SHEET TABLE
+
+| R Function    | $H_0$     | $H_A$     | Output Vars    | Misc    |
+|---------------- | --------------- | --------------- | --------------- | --------------- |
+| `shapiro.test`    | Data **is** normally distributed    | Data **is NOT** normally distributed    | `p.value`    | N/A   |
+
+

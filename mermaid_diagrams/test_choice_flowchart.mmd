@@ -1,0 +1,17 @@
+flowchart TD
+  subgraph Data
+    subgraph Independent
+      icon[Continuous]
+      icat[Categorical]
+    end
+    subgraph Dependent
+      dcon[Continuous]
+      dcat[Categorical]
+    end
+  end
+  subgraph Tests
+    icat & dcon --> t{T-tests}
+    icat & dcat --> c{Chi-Square}
+    icon & dcon --> r{Regression}
+    icon & dcat --> l{Logistic Regression} 
+  end

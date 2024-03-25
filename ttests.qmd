@@ -1,0 +1,81 @@
+---
+title: T-tests
+date: 2024-03-25
+author: Michael Enda
+---
+
+## Data Types
+
+To run a T-test your data needs to have the following characteristics:
+
+### Independent Variable
+
+#### Two-Sample T-test
+
+**Categorical** data with one **factor** which has two **levels**. If the data
+you have has more than one factor, or two levels, then you need to run either a
+[ANOVA](/anova.qmd), or [MANOVA](/manova.qmd), test.
+
+#### One-sample t-test
+
+**Categorical** data with one **factor** with one **level**, along with a
+comparison value.
+
+### Dependent Variable
+
+The dependent variable must be a **continuous** variable.
+
+## Test Assumptions
+
+To successfully run a T-test make sure that the data meets all of the following
+assumptions.
+		- [ ] Data is randomly selected from the population
+			- Assume True
+		- [ ] Observations are independent from each other
+			- Assume True
+		- [ ] Data is normal / sample size is large enough.
+			- Shapiro-Wilk normality test
+		- [ ] Equal variance in response data
+			- [ ] `var.test` - H_o: Variance is equal
+
+
+### Data is randomly sampled
+
+This is critical for all statistical tests, it ensure that data points are
+independent from each other. You can **assume this true** when given data. It
+is important to keep this in mind if you are collecting your own data though.
+
+### Observation are independent from each other
+
+**Assume True** 
+
+### Response data is normal
+
+This assumption can be met in one of two ways:
+
+#### Central limit theorem
+
+Thanks to the Central Limit Theorem, if each level in your independent data has
+**greater than 30** points (N > 30) then you can **assume response data is
+normal**, even if the [Shapiro Wilks](#shapiro-wilks-test) returns otherwise. 
+
+#### Shapiro Wilks test
+
+| R Function    | $H_0$     | $H_A$     | Output Vars    | Misc    |
+|---------------- | --------------- | --------------- | --------------- | --------------- |
+| `shapiro.test`    | Data **is** normally distributed    | Data **is NOT** normally distributed    | `p.value`    | N/A   |
+
+For a more complete explanation of the Shapiro Wilks test go to
+[here](/shapiro_wilks.qmd)
+
+### Equal variance in response data
+
+This is only if you're attempting to run a two-sample T-test where you need to
+compare two different levels within a factor.
+
+| R Function    | $H_0$     | $H_A$     | Output Vars    | Misc    |
+|---------------- | --------------- | --------------- | --------------- | --------------- |
+| `var.test`    | Variance is equal    | Variance is **NOT** equal | `p.value`, `conf.int`   | N/A   |
+
+For a more complete explanation for `var.test` go to [here](/var_test.qmd)
+
