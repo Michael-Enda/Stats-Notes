@@ -25,7 +25,7 @@
     "href": "index.html",
     "title": "Index",
     "section": "",
-    "text": "flowchart TD\n  subgraph Data\n    subgraph Independent\n      icon[Continuous]\n      icat[Categorical]\n    end\n    subgraph Dependent\n      dcon[Continuous]\n      dcat[Categorical]\n    end\n  end\n  subgraph Tests\n    icat & dcon --&gt; t{T-tests}\n    icat & dcat --&gt; c{Chi-Square}\n    icon & dcon --&gt; r{Regression}\n    icon & dcat --&gt; l{Logistic Regression} \n  end\n\n\n\n\n\n\n\n\n\n\nT-Tests\n\n\n\n\n\n\n\n\nAssumptions of each test\n\nT-test\n\nData is randomly selected from the population\n\nAssume True\n\nObservations are independent from each other\n\nAssume True\n\nData is normal / sample size is large enough.\n\nShapiro-Wilk normality test\n\nEqual variance in response data\n\nvar.test - H_o: Variance is equal\n\n\nChi-Square\n\nNo assumptions made about the data?\n\nANOVA/MANOVA\n\nEach level’s response variables are normally distributed\n\nShapiro-Wilk normality test\n\nNull hypothesis - Data is normally distributed\n\n\nEach level’s response data has the same variance\n\nLeveneTest\n\nH_0 - Variance is equal\n\n\nSamples must be independent from each other\n\nAssume True\n\n\nPost-hoc tests\n\nTukeyHSD\n\nSame as T-test/ANOVA\nData sets must be of equal length\n\n\nLinear Regression\n\nLinear relationship between variable\n\nPlot data and look to see if the data is linear\n\nThere is constant variance of the errors (error are homescedastic)\n\nncvTest - H_0 - errors are homoscedastic\n\nError are statistically independent\n\nPlot: x = fitted values, y = residuals (error), line y = 0\nLook For patterns\n\nError are normally distributed\n\nqqPlot - Points are within the bounded area.\n\nWhat do the output numbers mean?\n\nshapiro.test(residuals) - H_0 - Variance is equal"
+    "text": "flowchart TD\n  subgraph Data\n    subgraph Independent\n      icon[Continuous]\n      icat[Categorical]\n    end\n    subgraph Dependent\n      dcon[Continuous]\n      dcat[Categorical]\n    end\n  end\n  subgraph Tests\n    icat & dcon --&gt; t{T-tests}\n    icat & dcat --&gt; c{Chi-Square}\n    icon & dcon --&gt; r{Regression}\n    icon & dcat --&gt; l{Logistic Regression} \n  end"
   },
   {
     "objectID": "index.html#deciding-what-test-to-run",
@@ -38,15 +38,22 @@
     "objectID": "index.html#main-tests",
     "href": "index.html#main-tests",
     "title": "Index",
-    "section": "",
-    "text": "T-Tests"
+    "section": "Main Tests",
+    "text": "Main Tests\n\nT-Tests"
+  },
+  {
+    "objectID": "index.html#unit-2",
+    "href": "index.html#unit-2",
+    "title": "Index",
+    "section": "Unit 2",
+    "text": "Unit 2"
   },
   {
     "objectID": "index.html#todo",
     "href": "index.html#todo",
     "title": "Index",
-    "section": "",
-    "text": "Assumptions of each test\n\nT-test\n\nData is randomly selected from the population\n\nAssume True\n\nObservations are independent from each other\n\nAssume True\n\nData is normal / sample size is large enough.\n\nShapiro-Wilk normality test\n\nEqual variance in response data\n\nvar.test - H_o: Variance is equal\n\n\nChi-Square\n\nNo assumptions made about the data?\n\nANOVA/MANOVA\n\nEach level’s response variables are normally distributed\n\nShapiro-Wilk normality test\n\nNull hypothesis - Data is normally distributed\n\n\nEach level’s response data has the same variance\n\nLeveneTest\n\nH_0 - Variance is equal\n\n\nSamples must be independent from each other\n\nAssume True\n\n\nPost-hoc tests\n\nTukeyHSD\n\nSame as T-test/ANOVA\nData sets must be of equal length\n\n\nLinear Regression\n\nLinear relationship between variable\n\nPlot data and look to see if the data is linear\n\nThere is constant variance of the errors (error are homescedastic)\n\nncvTest - H_0 - errors are homoscedastic\n\nError are statistically independent\n\nPlot: x = fitted values, y = residuals (error), line y = 0\nLook For patterns\n\nError are normally distributed\n\nqqPlot - Points are within the bounded area.\n\nWhat do the output numbers mean?\n\nshapiro.test(residuals) - H_0 - Variance is equal"
+    "section": "TODO",
+    "text": "TODO\n\nAssumptions of each test\n\nT-test\n\nData is randomly selected from the population\n\nAssume True\n\nObservations are independent from each other\n\nAssume True\n\nData is normal / sample size is large enough.\n\nShapiro-Wilk normality test\n\nEqual variance in response data\n\nvar.test - H_o: Variance is equal\n\n\nChi-Square\n\nNo assumptions made about the data?\n\nANOVA/MANOVA\n\nEach level’s response variables are normally distributed\n\nShapiro-Wilk normality test\n\nNull hypothesis - Data is normally distributed\n\n\nEach level’s response data has the same variance\n\nLeveneTest\n\nH_0 - Variance is equal\n\n\nSamples must be independent from each other\n\nAssume True\n\n\nPost-hoc tests\n\nTukeyHSD\n\nSame as T-test/ANOVA\nData sets must be of equal length\n\n\nLinear Regression\n\nLinear relationship between variable\n\nPlot data and look to see if the data is linear\n\nThere is constant variance of the errors (error are homescedastic)\n\nncvTest - H_0 - errors are homoscedastic\n\nError are statistically independent\n\nPlot: x = fitted values, y = residuals (error), line y = 0\nLook For patterns\n\nError are normally distributed\n\nqqPlot - Points are within the bounded area.\n\nWhat do the output numbers mean?\n\nshapiro.test(residuals) - H_0 - Variance is equal"
   },
   {
     "objectID": "var_test.html",
