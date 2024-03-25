@@ -2,8 +2,6 @@
 title: "Index"
 ---
 
-# HELLO WORLD
-
 ## Deciding What Test to Run
 
 ```{mermaid}
