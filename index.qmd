@@ -24,7 +24,7 @@ title: "Index"
 
 - [Multivariate Regression](/multivariate_regression.qmd)
 - [Model Selection](/model_selection.md)
-- [Variable Importance](/variable_importance.md)
+- [Variable Importance](/variable_importance.qmd)
 - [ANVOCA](/anvoca.md)
 - [Interaction Term](/interaction_term.md)
 - [Fixed vs Random Effects](/fixed_vs_random_effects.md)
