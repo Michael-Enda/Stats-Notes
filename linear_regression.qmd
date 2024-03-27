@@ -1,0 +1,31 @@
+---
+title: Linear Regression
+date: 2024-03-27
+tags: []
+---
+
+## WIP 
+
+This page is under construction
+
+## Assumptions
+
+### Linear Relationship
+
+### Normality of residuals
+
+### Homoscedasticity
+
+### Independence of Observations
+
+## Interpreting Output
+
+### Variable Effects
+
+### Model Fit
+
+## Displaying Summary
+
+### Stargazer package
+
+### Pest function

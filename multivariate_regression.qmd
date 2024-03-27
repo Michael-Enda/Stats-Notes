@@ -1,0 +1,50 @@
+---
+title: Multivariate Regression
+date: 2024-03-27
+tags: []
+---
+
+## Understand how to run and interpret a multivariate regression
+
+### Steps in running a multivariate regression
+
+1. **Come up with the question of interest.**
+   - Ex: Which factors `a, b, c` are significantly associated with y after
+   controlling for the other variables? => `y ~ a + b + c`
+2. **Look at the data** 
+   - Run `pairs` on the variables of interest for the given dataset.
+   - Not entirely sure what a _non-linear_ relationship would look like.
+3. **Check multicollinearity across all independent variables** - `a,b,c`
+   - Run `cor` on the independent variables.
+     - All examples have `use='complete.obs'` set within the function. Even
+     looking at Rhelp I don't know what this means.
+   - Two independent variables have *potentially worrying* correlation when
+   their correlation is $\pm 0.5$. 
+     - This value is dependent on the field and level of analysis you want to
+     perform, it is not a static number.
+   - **NOTE:** Multicollinearity is only an issue if you want to figure out the
+   effect of **each** independent variables (`a,b,c`) on `y`. You **do not**
+   have to run this if your goal is to use the linear model to predict `y`
+   generally.
+4. **Use the information on multicollinearity to update your model.** 
+   - Let's say that `b` and `c` have strong correlation, try to determine which
+   one is more critical in answering your question of interest. If one is less
+   critical, then remove it from the model.
+5. **Check the `vif` of the model.** 
+   - Need to understand `vif` function more.
+6. **Check the normality of the dependent variable.** 
+   - There are multiple ways to do this:
+     - Plot a histogram of the data with `hist` function.
+       - Good exploratory first step, not enough to claim data is normal.
+     - Run `qqPlot` on the data, see more info about `qqPlot`
+     [here](/qqPlot.qmd)
+     - Run `shapiro.test` on data, see more info about `shapiro.test`
+     [here](/shapiro_wilks.qmd).
+   - **NOTE:** The normality of the dependent variable *itself* is not really
+     important. What is really important is the **normality of the residuals** 
+     of your model. However, normality of the dependent variable is a 
+     **good proxy** for normality of residuals **before** you run your model. 
+7. **Run the model.** 
+   - Run `lm` with the model you edited in step 4.
+8. **Check the assumptions of the model.** 
+   - See how to test assumption of your model [here](/linear_regression.qmd#assumptions)
