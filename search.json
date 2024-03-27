@@ -21,6 +21,20 @@
     "text": "Test Assumptions\nTo successfully run a T-test make sure that the data meets all of the following assumptions. - [ ] Data is randomly selected from the population - Assume True - [ ] Observations are independent from each other - Assume True - [ ] Data is normal / sample size is large enough. - Shapiro-Wilk normality test - [ ] Equal variance in response data - [ ] var.test - H_o: Variance is equal\n\nData is randomly sampled\nThis is critical for all statistical tests, it ensure that data points are independent from each other. You can assume this true when given data. It is important to keep this in mind if you are collecting your own data though.\n\n\nObservation are independent from each other\nAssume True\n\n\nResponse data is normal\nThis assumption can be met in one of two ways:\n\nCentral limit theorem\nThanks to the Central Limit Theorem, if each level in your independent data has greater than 30 points (N &gt; 30) then you can assume response data is normal, even if the Shapiro Wilks returns otherwise.\n\n\nShapiro Wilks test\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nshapiro.test\nData is normally distributed\nData is NOT normally distributed\np.value\nN/A\n\n\n\nFor a more complete explanation of the Shapiro Wilks test go to here\n\n\n\nEqual variance in response data\nThis is only if you’re attempting to run a two-sample T-test where you need to compare two different levels within a factor.\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nvar.test\nVariance is equal\nVariance is NOT equal\np.value, conf.int\nN/A\n\n\n\nFor a more complete explanation for var.test go to here"
   },
   {
+    "objectID": "multivariate_regression.html",
+    "href": "multivariate_regression.html",
+    "title": "Multivariate Regression",
+    "section": "",
+    "text": "Come up with the question of interest.\n\nEx: Which factors a, b, c are significantly associated with y after controlling for the other variables? =&gt; y ~ a + b + c\n\nLook at the data\n\nRun pairs on the variables of interest for the given dataset.\nNot entirely sure what a non-linear relationship would look like.\n\nCheck multicollinearity across all independent variables - a,b,c\n\nRun cor on the independent variables.\n\nAll examples have use='complete.obs' set within the function. Even looking at Rhelp I don’t know what this means.\n\nTwo independent variables have potentially worrying correlation when their correlation is \\(\\pm 0.5\\).\n\nThis value is dependent on the field and level of analysis you want to perform, it is not a static number.\n\nNOTE: Multicollinearity is only an issue if you want to figure out the effect of each independent variables (a,b,c) on y. You do not have to run this if your goal is to use the linear model to predict y generally.\n\nUse the information on multicollinearity to update your model.\n\nLet’s say that b and c have strong correlation, try to determine which one is more critical in answering your question of interest. If one is less critical, then remove it from the model.\n\nCheck the vif of the model.\n\nNeed to understand vif function more.\n\nCheck the normality of the dependent variable.\n\nThere are multiple ways to do this:\n\nPlot a histogram of the data with hist function.\n\nGood exploratory first step, not enough to claim data is normal.\n\nRun qqPlot on the data, see more info about qqPlot here\nRun shapiro.test on data, see more info about shapiro.test here.\n\nNOTE: The normality of the dependent variable itself is not really important. What is really important is the normality of the residuals of your model. However, normality of the dependent variable is a good proxy for normality of residuals before you run your model.\n\nRun the model.\n\nRun lm with the model you edited in step 4.\n\nCheck the assumptions of the model.\n\nSee how to test assumption of your model here"
+  },
+  {
+    "objectID": "multivariate_regression.html#understand-how-to-run-and-interpret-a-multivariate-regression",
+    "href": "multivariate_regression.html#understand-how-to-run-and-interpret-a-multivariate-regression",
+    "title": "Multivariate Regression",
+    "section": "",
+    "text": "Come up with the question of interest.\n\nEx: Which factors a, b, c are significantly associated with y after controlling for the other variables? =&gt; y ~ a + b + c\n\nLook at the data\n\nRun pairs on the variables of interest for the given dataset.\nNot entirely sure what a non-linear relationship would look like.\n\nCheck multicollinearity across all independent variables - a,b,c\n\nRun cor on the independent variables.\n\nAll examples have use='complete.obs' set within the function. Even looking at Rhelp I don’t know what this means.\n\nTwo independent variables have potentially worrying correlation when their correlation is \\(\\pm 0.5\\).\n\nThis value is dependent on the field and level of analysis you want to perform, it is not a static number.\n\nNOTE: Multicollinearity is only an issue if you want to figure out the effect of each independent variables (a,b,c) on y. You do not have to run this if your goal is to use the linear model to predict y generally.\n\nUse the information on multicollinearity to update your model.\n\nLet’s say that b and c have strong correlation, try to determine which one is more critical in answering your question of interest. If one is less critical, then remove it from the model.\n\nCheck the vif of the model.\n\nNeed to understand vif function more.\n\nCheck the normality of the dependent variable.\n\nThere are multiple ways to do this:\n\nPlot a histogram of the data with hist function.\n\nGood exploratory first step, not enough to claim data is normal.\n\nRun qqPlot on the data, see more info about qqPlot here\nRun shapiro.test on data, see more info about shapiro.test here.\n\nNOTE: The normality of the dependent variable itself is not really important. What is really important is the normality of the residuals of your model. However, normality of the dependent variable is a good proxy for normality of residuals before you run your model.\n\nRun the model.\n\nRun lm with the model you edited in step 4.\n\nCheck the assumptions of the model.\n\nSee how to test assumption of your model here"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Index",
@@ -39,21 +53,56 @@
     "href": "index.html#main-tests",
     "title": "Index",
     "section": "Main Tests",
-    "text": "Main Tests\n\nT-Tests"
+    "text": "Main Tests\n\nT-Tests\nLinear Regression"
   },
   {
-    "objectID": "index.html#unit-2",
-    "href": "index.html#unit-2",
+    "objectID": "index.html#sub-tests",
+    "href": "index.html#sub-tests",
     "title": "Index",
-    "section": "Unit 2",
-    "text": "Unit 2"
+    "section": "Sub Tests",
+    "text": "Sub Tests\n\nNormality\n\nShapiro Wilks - Not done\nqqPlot - Not done"
+  },
+  {
+    "objectID": "index.html#unit-3",
+    "href": "index.html#unit-3",
+    "title": "Index",
+    "section": "Unit 3",
+    "text": "Unit 3\n\nMultivariate Regression\nModel Selection\nVariable Importance\nANVOCA\nInteraction Term\nFixed vs Random Effects\nMixed Models"
   },
   {
     "objectID": "index.html#todo",
     "href": "index.html#todo",
     "title": "Index",
     "section": "TODO",
-    "text": "TODO\n\nAssumptions of each test\n\nT-test\n\nData is randomly selected from the population\n\nAssume True\n\nObservations are independent from each other\n\nAssume True\n\nData is normal / sample size is large enough.\n\nShapiro-Wilk normality test\n\nEqual variance in response data\n\nvar.test - H_o: Variance is equal\n\n\nChi-Square\n\nNo assumptions made about the data?\n\nANOVA/MANOVA\n\nEach level’s response variables are normally distributed\n\nShapiro-Wilk normality test\n\nNull hypothesis - Data is normally distributed\n\n\nEach level’s response data has the same variance\n\nLeveneTest\n\nH_0 - Variance is equal\n\n\nSamples must be independent from each other\n\nAssume True\n\n\nPost-hoc tests\n\nTukeyHSD\n\nSame as T-test/ANOVA\nData sets must be of equal length\n\n\nLinear Regression\n\nLinear relationship between variable\n\nPlot data and look to see if the data is linear\n\nThere is constant variance of the errors (error are homescedastic)\n\nncvTest - H_0 - errors are homoscedastic\n\nError are statistically independent\n\nPlot: x = fitted values, y = residuals (error), line y = 0\nLook For patterns\n\nError are normally distributed\n\nqqPlot - Points are within the bounded area.\n\nWhat do the output numbers mean?\n\nshapiro.test(residuals) - H_0 - Variance is equal"
+    "text": "TODO\n\nAnswer some questions:\n\nMultivariate Regression\n\nIn bullet 3, figure out what use='complete.obs' does in the function.\nIn bullet 5, explain more about the vif function in R.\n\n\nAssumptions of each test\n\nT-test\n\nData is randomly selected from the population\n\nAssume True\n\nObservations are independent from each other\n\nAssume True\n\nData is normal / sample size is large enough.\n\nShapiro-Wilk normality test\n\nEqual variance in response data\n\nvar.test - H_o: Variance is equal\n\n\nChi-Square\n\nNo assumptions made about the data?\n\nANOVA/MANOVA\n\nEach level’s response variables are normally distributed\n\nShapiro-Wilk normality test\n\nNull hypothesis - Data is normally distributed\n\n\nEach level’s response data has the same variance\n\nLeveneTest\n\nH_0 - Variance is equal\n\n\nSamples must be independent from each other\n\nAssume True\n\n\nPost-hoc tests\n\nTukeyHSD\n\nSame as T-test/ANOVA\nData sets must be of equal length\n\n\nLinear Regression\n\nLinear relationship between variable\n\nPlot data and look to see if the data is linear\n\nThere is constant variance of the errors (error are homescedastic)\n\nncvTest - H_0 - errors are homoscedastic\n\nError are statistically independent\n\nPlot: x = fitted values, y = residuals (error), line y = 0\nLook For patterns\n\nError are normally distributed\n\nqqPlot - Points are within the bounded area.\n\nWhat do the output numbers mean?\n\nshapiro.test(residuals) - H_0 - Variance is equal"
+  },
+  {
+    "objectID": "model_selection.html",
+    "href": "model_selection.html",
+    "title": "Model Selection",
+    "section": "",
+    "text": "Full model\n\nThis model contains all the independent variables you want to study given you question of interest. EX: If your question of interest is “what are the effects of a, b, c on y,” then the full model would be y ~ a + b + c\n\nOverfitting\n\nWhen a linear model reduces so much noise in the dataset that it makes the model unable to find general relationship. This causes your model to only be applicable to your exact dataset.\n\nNested models\n\nModels are nested when they contain some, but not all, of the same independent variables. For example y ~ a + b is a nested model of y ~ a + b + c.\n\nNon-nested models\n\nModels are non-nested when they don’t share any of the same independent variables. For example, y ~ a + b and y ~ c + d are non-nested models."
+  },
+  {
+    "objectID": "model_selection.html#relevant-definitions",
+    "href": "model_selection.html#relevant-definitions",
+    "title": "Model Selection",
+    "section": "",
+    "text": "Full model\n\nThis model contains all the independent variables you want to study given you question of interest. EX: If your question of interest is “what are the effects of a, b, c on y,” then the full model would be y ~ a + b + c\n\nOverfitting\n\nWhen a linear model reduces so much noise in the dataset that it makes the model unable to find general relationship. This causes your model to only be applicable to your exact dataset.\n\nNested models\n\nModels are nested when they contain some, but not all, of the same independent variables. For example y ~ a + b is a nested model of y ~ a + b + c.\n\nNon-nested models\n\nModels are non-nested when they don’t share any of the same independent variables. For example, y ~ a + b and y ~ c + d are non-nested models."
+  },
+  {
+    "objectID": "model_selection.html#full-model-vs-model-selection",
+    "href": "model_selection.html#full-model-vs-model-selection",
+    "title": "Model Selection",
+    "section": "Full Model vs Model Selection",
+    "text": "Full Model vs Model Selection\nNOTE: Whether you decide to use a full model, or a model selection you still need to be concerned with multicollinearity.\nYou need to decide whether to run the full model, or cut down on the amount of predictor variables based on the following questions:\n\nFull Model\n\nDo you want to control for the variables you would cut out when doing model selection, even why they may not be important predictors of your dependent variable?\nDo you have a large sample size and do not have issue with power and overfitting?\nAre all variables theoretically important?\nAre you interested in the relationship between an unimportant variable and another variable?\nHave other studies shown one of your unimportant variables to have a large effect size on your dependent variable?\n\nDo you want to see if you can replicate the effect size in your data set?\n\n\n\n\nModel Selection\n\nDo you have a small sample size and run into issues of power and overfitting when you include all dependent variables?\nDo you only care about predicting the dependent variable, and don’t care about the interaction of unimportant variables?\nDo you have too many independent variables to effectively run and interpret the model?"
+  },
+  {
+    "objectID": "model_selection.html#comparing-models",
+    "href": "model_selection.html#comparing-models",
+    "title": "Model Selection",
+    "section": "Comparing Models",
+    "text": "Comparing Models\nOnce you have decided on a few suitable models you can compare how accurate they are along the following axes to determine which one you want to use. The adjusted R2 and AIC comparisons work on both nested, and non-nested models.\n\nAdjusted R2\n\nRun each of your models then compare the adjusted R2 values (NOT the Multiple R2 values).\n\nYou can extract the adjusted R2 value from the summary function via summary(model)$adj.r.squared.\n\nFor this axis you want a higher adjusted R2 value as this shows that the independent variables explain more variation of your dependent variable.\n\n\n\nAkaike’s Information Criterion (AIC)\n\nWhat the AIC represents is outside of the scope of this class however, we can still use the output to compare models.\nYou want the model with the lowest AIC value.\n\nYou don’t really care about small differences (&lt; 5) in AIC.\n\nCalculate the AIC of a model by running the AIC function on the model - AIC(model)\n\n\n\nF test\nThis model is not covered in detail in the class\n\nUse this to tell if your models are significantly different.\nCalculate by running an ANOVA test on the different regression outputs."
   },
   {
     "objectID": "var_test.html",
@@ -103,5 +152,54 @@
     "title": "About",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "linear_regression.html",
+    "href": "linear_regression.html",
+    "title": "Linear Regression",
+    "section": "",
+    "text": "This page is under construction"
+  },
+  {
+    "objectID": "linear_regression.html#wip",
+    "href": "linear_regression.html#wip",
+    "title": "Linear Regression",
+    "section": "",
+    "text": "This page is under construction"
+  },
+  {
+    "objectID": "linear_regression.html#assumptions",
+    "href": "linear_regression.html#assumptions",
+    "title": "Linear Regression",
+    "section": "Assumptions",
+    "text": "Assumptions\n\nLinear Relationship\n\n\nNormality of residuals\n\n\nHomoscedasticity\n\n\nIndependence of Observations"
+  },
+  {
+    "objectID": "linear_regression.html#interpreting-output",
+    "href": "linear_regression.html#interpreting-output",
+    "title": "Linear Regression",
+    "section": "Interpreting Output",
+    "text": "Interpreting Output\n\nVariable Effects\n\n\nModel Fit"
+  },
+  {
+    "objectID": "linear_regression.html#displaying-summary",
+    "href": "linear_regression.html#displaying-summary",
+    "title": "Linear Regression",
+    "section": "Displaying Summary",
+    "text": "Displaying Summary\n\nStargazer package\n\n\nPest function"
+  },
+  {
+    "objectID": "variable_importance.html",
+    "href": "variable_importance.html",
+    "title": "Variable Importance",
+    "section": "",
+    "text": "Look here for more information on how to standardize variables.\nNOTE: The downside of standardizing variables is that it changes the units of your variables. This makes it hard to interpret the Beta coefficient of your model after standardization.\n\n\n\nThe R2 value is interpreted as how much variance in the dependent variable is explained by change in the independent variables. We can use this value to determine which independent variable is most important.\n\n\nWhen all of your independent variables are uncorrelated you could run univariate linear regressions for each of your independent variables.\nNOTE: When trying this method sum the R2 values of all the univariate models. If the sum is greater than the multivariate model’s R2 value then the independent variables are are correlated.\n\n\n\nRun an ANOVA test to determine how much each variable reduces the sum of squared error.\nNOTE: When performing this method, the order of independent variables in the model influences the calculated sum of squared error for that variable. This, in turn, influences each variable’s contribution to R2.\nTo avoid this you can install the relaimpo package and use the calc.relimp function. What this package does is run every possible permutation of variable order to calculate the variable importance. If you use this read the documentation of the package, you don’t want to run tests without knowing what they’re doing."
+  },
+  {
+    "objectID": "variable_importance.html#how-to-calculate-variable-importance",
+    "href": "variable_importance.html#how-to-calculate-variable-importance",
+    "title": "Variable Importance",
+    "section": "",
+    "text": "Look here for more information on how to standardize variables.\nNOTE: The downside of standardizing variables is that it changes the units of your variables. This makes it hard to interpret the Beta coefficient of your model after standardization.\n\n\n\nThe R2 value is interpreted as how much variance in the dependent variable is explained by change in the independent variables. We can use this value to determine which independent variable is most important.\n\n\nWhen all of your independent variables are uncorrelated you could run univariate linear regressions for each of your independent variables.\nNOTE: When trying this method sum the R2 values of all the univariate models. If the sum is greater than the multivariate model’s R2 value then the independent variables are are correlated.\n\n\n\nRun an ANOVA test to determine how much each variable reduces the sum of squared error.\nNOTE: When performing this method, the order of independent variables in the model influences the calculated sum of squared error for that variable. This, in turn, influences each variable’s contribution to R2.\nTo avoid this you can install the relaimpo package and use the calc.relimp function. What this package does is run every possible permutation of variable order to calculate the variable importance. If you use this read the documentation of the package, you don’t want to run tests without knowing what they’re doing."
   }
 ]

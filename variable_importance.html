@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-03-25">
+<meta name="dcterms.date" content="2024-03-27">
 
-<title>. - Var Test</title>
+<title>. - Variable Importance</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,35 +68,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -146,8 +117,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#wip" id="toc-wip" class="nav-link active" data-scroll-target="#wip">WIP</a></li>
-  <li><a href="#cheat-sheet-table" id="toc-cheat-sheet-table" class="nav-link" data-scroll-target="#cheat-sheet-table">CHEAT SHEET table</a></li>
+  <li><a href="#how-to-calculate-variable-importance" id="toc-how-to-calculate-variable-importance" class="nav-link active" data-scroll-target="#how-to-calculate-variable-importance">How to Calculate Variable Importance</a>
+  <ul class="collapse">
+  <li><a href="#standardizing-variables" id="toc-standardizing-variables" class="nav-link" data-scroll-target="#standardizing-variables">Standardizing Variables</a></li>
+  <li><a href="#r2-values-of-each-dependent-variable" id="toc-r2-values-of-each-dependent-variable" class="nav-link" data-scroll-target="#r2-values-of-each-dependent-variable">R<sup>2</sup> Values of Each Dependent Variable</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -156,7 +130,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Var Test</h1>
+<h1 class="title">Variable Importance</h1>
 </div>
 
 
@@ -167,7 +141,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 25, 2024</p>
+      <p class="date">March 27, 2024</p>
     </div>
   </div>
   
@@ -179,41 +153,30 @@ window.Quarto = {
 </header>
 
 
-<section id="wip" class="level2">
-<h2 class="anchored" data-anchor-id="wip">WIP</h2>
-<p>This test needs to get finished</p>
+<section id="how-to-calculate-variable-importance" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-calculate-variable-importance">How to Calculate Variable Importance</h2>
+<section id="standardizing-variables" class="level3">
+<h3 class="anchored" data-anchor-id="standardizing-variables">Standardizing Variables</h3>
+<p>Look <a href="./standardize_variables.html">here</a> for more information on how to standardize variables.</p>
+<p><strong>NOTE:</strong> The downside of standardizing variables is that it changes the units of your variables. This makes it hard to interpret the Beta coefficient of your model after standardization.</p>
 </section>
-<section id="cheat-sheet-table" class="level2">
-<h2 class="anchored" data-anchor-id="cheat-sheet-table">CHEAT SHEET table</h2>
-<table class="table">
-<colgroup>
-<col style="width: 21%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 19%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>R Function</th>
-<th><span class="math inline">\(H_0\)</span></th>
-<th><span class="math inline">\(H_A\)</span></th>
-<th>Output Vars</th>
-<th>Misc</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>var.test</code></td>
-<td>Variance is equal</td>
-<td>Variance is <strong>NOT</strong> equal</td>
-<td><code>p.value</code>, <code>conf.int</code></td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
+<section id="r2-values-of-each-dependent-variable" class="level3">
+<h3 class="anchored" data-anchor-id="r2-values-of-each-dependent-variable">R<sup>2</sup> Values of Each Dependent Variable</h3>
+<p>The R<sup>2</sup> value is interpreted as how much variance in the dependent variable is explained by change in the independent variables. We can use this value to determine which independent variable is most important.</p>
+<section id="for-uncorrelated-variables" class="level4">
+<h4 class="anchored" data-anchor-id="for-uncorrelated-variables">For Uncorrelated Variables</h4>
+<p>When all of your independent variables are uncorrelated you could run univariate linear regressions for each of your independent variables.</p>
+<p><strong>NOTE:</strong> When trying this method sum the R<sup>2</sup> values of all the univariate models. If the <strong>sum is greater</strong> than the multivariate model’s R<sup>2</sup> value then the independent variables are <strong>are</strong> correlated.</p>
+</section>
+<section id="for-correlated-variables" class="level4">
+<h4 class="anchored" data-anchor-id="for-correlated-variables">For Correlated Variables</h4>
+<p>Run an <a href="./anova.html">ANOVA</a> test to determine how much each variable <strong>reduces</strong> the sum of squared error.</p>
+<p><strong>NOTE:</strong> When performing this method, the order of independent variables in the model influences the calculated sum of squared error for that variable. This, in turn, influences each variable’s contribution to R<sup>2</sup>.</p>
+<p>To avoid this you can install the <code>relaimpo</code> package and use the <code>calc.relimp</code> function. What this package does is run every possible permutation of variable order to calculate the variable importance. If you use this <strong>read the documentation</strong> of the package, you don’t want to run tests without knowing what they’re doing.</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

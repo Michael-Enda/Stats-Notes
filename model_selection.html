@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-03-25">
+<meta name="dcterms.date" content="2024-03-27">
 
-<title>. - Var Test</title>
+<title>. - Model Selection</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,35 +68,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -146,8 +117,18 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#wip" id="toc-wip" class="nav-link active" data-scroll-target="#wip">WIP</a></li>
-  <li><a href="#cheat-sheet-table" id="toc-cheat-sheet-table" class="nav-link" data-scroll-target="#cheat-sheet-table">CHEAT SHEET table</a></li>
+  <li><a href="#relevant-definitions" id="toc-relevant-definitions" class="nav-link active" data-scroll-target="#relevant-definitions">Relevant definitions</a></li>
+  <li><a href="#full-model-vs-model-selection" id="toc-full-model-vs-model-selection" class="nav-link" data-scroll-target="#full-model-vs-model-selection">Full Model vs Model Selection</a>
+  <ul class="collapse">
+  <li><a href="#full-model" id="toc-full-model" class="nav-link" data-scroll-target="#full-model">Full Model</a></li>
+  <li><a href="#model-selection" id="toc-model-selection" class="nav-link" data-scroll-target="#model-selection">Model Selection</a></li>
+  </ul></li>
+  <li><a href="#comparing-models" id="toc-comparing-models" class="nav-link" data-scroll-target="#comparing-models">Comparing Models</a>
+  <ul class="collapse">
+  <li><a href="#adjusted-r2" id="toc-adjusted-r2" class="nav-link" data-scroll-target="#adjusted-r2">Adjusted R<sup>2</sup></a></li>
+  <li><a href="#akaikes-information-criterion-aic" id="toc-akaikes-information-criterion-aic" class="nav-link" data-scroll-target="#akaikes-information-criterion-aic">Akaike’s Information Criterion (AIC)</a></li>
+  <li><a href="#f-test" id="toc-f-test" class="nav-link" data-scroll-target="#f-test">F test</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -156,7 +137,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Var Test</h1>
+<h1 class="title">Model Selection</h1>
 </div>
 
 
@@ -167,7 +148,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 25, 2024</p>
+      <p class="date">March 27, 2024</p>
     </div>
   </div>
   
@@ -179,41 +160,87 @@ window.Quarto = {
 </header>
 
 
-<section id="wip" class="level2">
-<h2 class="anchored" data-anchor-id="wip">WIP</h2>
-<p>This test needs to get finished</p>
+<section id="relevant-definitions" class="level2">
+<h2 class="anchored" data-anchor-id="relevant-definitions">Relevant definitions</h2>
+<dl>
+<dt>Full model</dt>
+<dd>
+This model contains all the independent variables you want to study given you question of interest. <strong>EX:</strong> If your question of interest is “what are the effects of <code>a, b, c</code> on <code>y</code>,” then the full model would be <code>y ~ a + b + c</code>
+</dd>
+<dt>Overfitting</dt>
+<dd>
+When a linear model reduces so much noise in the dataset that it makes the model unable to find general relationship. This causes your model to only be applicable to your exact dataset.
+</dd>
+<dt>Nested models</dt>
+<dd>
+Models are nested when they contain some, but not all, of the same independent variables. For example <code>y ~ a + b</code> is a nested model of <code>y ~ a + b + c</code>.
+</dd>
+<dt>Non-nested models</dt>
+<dd>
+Models are non-nested when they don’t share <strong>any</strong> of the same independent variables. For example, <code>y ~ a + b</code> and <code>y ~ c + d</code> are non-nested models.
+</dd>
+</dl>
 </section>
-<section id="cheat-sheet-table" class="level2">
-<h2 class="anchored" data-anchor-id="cheat-sheet-table">CHEAT SHEET table</h2>
-<table class="table">
-<colgroup>
-<col style="width: 21%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 19%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>R Function</th>
-<th><span class="math inline">\(H_0\)</span></th>
-<th><span class="math inline">\(H_A\)</span></th>
-<th>Output Vars</th>
-<th>Misc</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>var.test</code></td>
-<td>Variance is equal</td>
-<td>Variance is <strong>NOT</strong> equal</td>
-<td><code>p.value</code>, <code>conf.int</code></td>
-<td>N/A</td>
-</tr>
-</tbody>
-</table>
+<section id="full-model-vs-model-selection" class="level2">
+<h2 class="anchored" data-anchor-id="full-model-vs-model-selection">Full Model vs Model Selection</h2>
+<p><strong>NOTE:</strong> Whether you decide to use a full model, or a model selection you still need to be concerned with multicollinearity.</p>
+<p>You need to decide whether to run the full model, or cut down on the amount of predictor variables based on the following questions:</p>
+<section id="full-model" class="level3">
+<h3 class="anchored" data-anchor-id="full-model">Full Model</h3>
+<ul>
+<li>Do you want to control for the variables you would cut out when doing model selection, even why they may not be important predictors of your dependent variable?</li>
+<li>Do you have a large sample size and <strong>do not</strong> have issue with power and overfitting?</li>
+<li>Are all variables theoretically important?</li>
+<li>Are you interested in the relationship between an unimportant variable and another variable?</li>
+<li>Have other studies shown one of your unimportant variables to have a large effect size on your dependent variable?
+<ul>
+<li>Do you want to see if you can replicate the effect size in your data set?</li>
+</ul></li>
+</ul>
+</section>
+<section id="model-selection" class="level3">
+<h3 class="anchored" data-anchor-id="model-selection">Model Selection</h3>
+<ul>
+<li>Do you have a small sample size and run into issues of power and overfitting when you include all dependent variables?</li>
+<li>Do you only care about predicting the dependent variable, and don’t care about the interaction of unimportant variables?</li>
+<li>Do you have too many independent variables to effectively run and interpret the model?</li>
+</ul>
+</section>
+</section>
+<section id="comparing-models" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-models">Comparing Models</h2>
+<p>Once you have decided on a few suitable models you can compare how accurate they are along the following axes to determine which one you want to use. The <a href="#adjusted-r2">adjusted R<sup>2</sup></a> and <a href="#akaikes-information-criterion-aic">AIC</a> comparisons work on both nested, and non-nested models.</p>
+<section id="adjusted-r2" class="level3">
+<h3 class="anchored" data-anchor-id="adjusted-r2">Adjusted R<sup>2</sup></h3>
+<ul>
+<li>Run each of your models then compare the adjusted R<sup>2</sup> values (<strong>NOT</strong> the Multiple R<sup>2</sup> values).
+<ul>
+<li>You can extract the adjusted R<sup>2</sup> value from the <code>summary</code> function via <code>summary(model)$adj.r.squared</code>.</li>
+</ul></li>
+<li>For this axis you want a higher adjusted R<sup>2</sup> value as this shows that the independent variables explain <strong>more</strong> variation of your dependent variable.</li>
+</ul>
+</section>
+<section id="akaikes-information-criterion-aic" class="level3">
+<h3 class="anchored" data-anchor-id="akaikes-information-criterion-aic">Akaike’s Information Criterion (AIC)</h3>
+<ul>
+<li>What the AIC represents is outside of the scope of this class however, we can still use the output to compare models.</li>
+<li>You want the model with the <strong>lowest</strong> AIC value.
+<ul>
+<li>You don’t really care about small differences (&lt; 5) in AIC.</li>
+</ul></li>
+<li>Calculate the AIC of a model by running the <code>AIC</code> function on the model - <code>AIC(model)</code></li>
+</ul>
+</section>
+<section id="f-test" class="level3">
+<h3 class="anchored" data-anchor-id="f-test">F test</h3>
+<p><strong>This model is not covered in detail in the class</strong></p>
+<ul>
+<li>Use this to tell if your models are significantly different.</li>
+<li>Calculate by running an <a href="./anova.html">ANOVA</a> test on the different regression outputs.</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
