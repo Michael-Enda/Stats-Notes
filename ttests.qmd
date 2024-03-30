@@ -27,18 +27,6 @@ The dependent variable must be a **continuous** variable.
 
 ## Test Assumptions
 
-To successfully run a T-test make sure that the data meets all of the following
-assumptions.
-		- [ ] Data is randomly selected from the population
-			- Assume True
-		- [ ] Observations are independent from each other
-			- Assume True
-		- [ ] Data is normal / sample size is large enough.
-			- Shapiro-Wilk normality test
-		- [ ] Equal variance in response data
-			- [ ] `var.test` - H_o: Variance is equal
-
-
 ### Data is randomly sampled
 
 This is critical for all statistical tests, it ensure that data points are
@@ -66,7 +54,7 @@ normal**, even if the [Shapiro Wilks](#shapiro-wilks-test) returns otherwise.
 | `shapiro.test`    | Data **is** normally distributed    | Data **is NOT** normally distributed    | `p.value`    | N/A   |
 
 For a more complete explanation of the Shapiro Wilks test go to
-[here](/shapiro_wilks.qmd)
+[here](/shapiro_wilks.qmd).
 
 ### Equal variance in response data
 

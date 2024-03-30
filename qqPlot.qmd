@@ -1,8 +1,14 @@
 ---
 title: Qqplot
-date: 2024-03-27
+date: 2024-03-30
 tags: []
 ---
 
-## 
+## CHEAT SHEET
+
+| R Function    | $H_0$     | $H_A$     | Output Vars    | Misc    |
+|---------------- | --------------- | --------------- | --------------- | --------------- |
+| `qqPlot`    |   |  | Plot of norm quantiles vs input data    | input data is
+normal if all points lie in bounded region of the graph. |
+
 

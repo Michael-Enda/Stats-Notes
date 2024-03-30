@@ -1,0 +1,26 @@
+---
+title: Tukey Hsd
+date: 2024-03-30
+tags: []
+---
+
+## Assumptions
+
+### Equal sample size across groups
+
+- Check N for each group being tested.
+
+### Equal Variance across groups
+
+| R Function    | $H_0$     | $H_A$     | Output Vars    | Misc    |
+|---------------- | --------------- | --------------- | --------------- | --------------- |
+| `var.test`    | Variance is equal    | Variance is **NOT** equal | `p.value`, `conf.int`   | Use when comparing only two groups |
+| `leveneTest` | Variance **is** equal | Variance **is not** equal | `p.value` | Use when comparing **more than** two groups |
+
+
+## CHEAT SHEET
+
+| R Function    | $H_0$     | $H_A$     | Output Vars    | Misc    |
+|---------------- | --------------- | --------------- | --------------- | --------------- |
+|	`TukeyHSD` | There **is no** statistical difference between groups | There **is** statistical difference between groups | `p adj, diff` | Make sure to check [assumptions](#assumptions) before running |
+

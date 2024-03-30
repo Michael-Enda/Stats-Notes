@@ -60,7 +60,7 @@ predictor variables based on the following questions:
 
 Once you have decided on a few suitable models you can compare how accurate
 they are along the following axes to determine which one you want to use. The
-[adjusted R^2^](#adjusted-r2) and [AIC](#akaikes-information-criterion-aic)
+[adjusted R^2^](#adjusted-r2) and [AIC](#aic)
 comparisons work on both nested, and non-nested models.
 
 ### Adjusted R^2^
@@ -72,8 +72,9 @@ comparisons work on both nested, and non-nested models.
 - For this axis you want a higher adjusted R^2^ value as this shows that the
   independent variables explain **more** variation of your dependent variable.
 
-### Akaike's Information Criterion (AIC)
+### AIC
 
+- **AKA: Akaike's Information Criterion**
 - What the AIC represents is outside of the scope of this class however, we can
   still use the output to compare models.
 - You want the model with the **lowest** AIC value.

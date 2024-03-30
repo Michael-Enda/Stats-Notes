@@ -1,0 +1,95 @@
+---
+title: Ancova
+date: 2024-03-30
+tags: []
+---
+
+## When to run ANCOVA tests
+
+- **Independent Variable:** Categorical *AND* Continuous
+- **Dependent Variable:** Continuous
+- Use when you want to see how the dependent variable varies based on group
+	(categorical variable) after controlling for other (continuous) variables.
+
+## Assumptions of ANCOVA test
+
+### Residuals are normally distributed
+
+This assumption can be test in two ways:
+
+#### qqPlot
+
+- Run `qqPlot` on the residuals of the model, see more info about `qqPlot`
+  [here](/qqPlot.qmd)
+
+| R Function    | $H_0$     | $H_A$     | Output Vars    | Misc    |
+|---------------- | --------------- | --------------- | --------------- | --------------- |
+| `qqPlot`    |   |  | Plot of norm quantiles vs input data    | input data is
+normal if all points lie in bounded region of the graph. |
+
+#### Shapiro Wilks test
+
+- Run `shapiro.test` on residuals of the model, see more info about `shapiro.test`
+  [here](/shapiro_wilks.qmd).
+
+| R Function    | $H_0$     | $H_A$     | Output Vars    | Misc    |
+|---------------- | --------------- | --------------- | --------------- | --------------- |
+| `shapiro.test`    | Data **is** normally distributed    | Data **is NOT** normally distributed    | `p.value`    | N/A   |
+
+For a more complete explanation of the Shapiro Wilks test go to
+[here](/shapiro_wilks.qmd).
+
+### Samples must be independent of one another.
+
+- Assume true for given data.
+- Ensure this is true when performing study design.
+
+### Same Variance across groups
+
+| R Function    | $H_0$     | $H_A$     | Output Vars    | Misc    |
+|---------------- | --------------- | --------------- | --------------- | --------------- |
+| `var.test`    | Variance is equal    | Variance is **NOT** equal | `p.value`, `conf.int`   | Use when comparing only two groups |
+| `leveneTest` | Variance **is** equal | Variance **is not** equal | `p.value` | Use when comparing **more than** two groups |
+
+For a more complete explanation for `var.test` go to [here](/var_test.qmd)
+
+### There is a linear relationship between dependent and independent variables
+
+- Plot your data with: `plot(dendendent ~ indpendent)`. Then look to see if
+relationship is clearly non-linear.
+
+## Running ANCOVA tests
+
+1. **Visualize the data.** 
+	 - Plot the data using a [Box Plot](/plots.qmd#box-plots).
+2. **Check [Assumptions](#assumptions-of-ancova-test)** 
+3. **Run ANCOVA test.** 
+	 - **NOTE:** The order of independent variables matter when running this
+	 test. First variable should be the independent variable you want to **test** 
+	 for. The following variables should be the independent variables you want
+	 to **control** for.
+
+| R Function    | $H_0$     | $H_A$     | Output Vars    | Misc    |
+|---------------- | --------------- | --------------- | --------------- | --------------- |
+| `aov` | There is **no** significant difference across groups | There **is** significant difference across groups | `PR(>F)` | Run `summary(model)` to extract `PR(>F)` |
+
+4. Interpret output of `aov` test.
+	 - If `PR(>F)` is less than alpha then you can say there is a
+	 difference between groups. But you **cannot** say which direction the
+	 difference goes.
+
+5. Run post-hoc tests.
+	- Run either:
+		- When variance between groups are equal: [Tukey HSD](/tukey_hsd.qmd)
+		- When variance between groups **is not** equal: [Tukey Kramer](/tukey_kramer.qmd)
+
+| R Function    | $H_0$     | $H_A$     | Output Vars    | Misc    |
+|---------------- | --------------- | --------------- | --------------- | --------------- |
+|	`TukeyHSD` | There **is no** statistical difference between groups | There **is** statistical difference between groups | `p adj, diff` | NA |
+|	`Unknown` | There **is no** statistical difference between groups | There **is** statistical difference between groups | `p adj, diff` | NA |
+
+6. Interpret output of post-hoc tests
+	 - `TukeyHSD` outputs pair-wise difference tests (similar to
+	 [Two-Sample T-tests](/ttests.qmd#two-sample-t-test)) which will tell you which dependent variables
+	 are different from each other (`p adj`) and how they are different (`diff`).
+

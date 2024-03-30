@@ -1,0 +1,52 @@
+---
+title: Anova
+date: 2024-03-30
+tags: []
+---
+
+## Assumptions of ANOVA test
+
+### Response data is normal
+
+This assumption can be met in one of two ways:
+
+#### Central limit theorem
+
+Thanks to the Central Limit Theorem, if each level in your independent data has
+**greater than 30** points (N > 30) then you can **assume response data is
+normal**, even if the [Shapiro Wilks](#shapiro-wilks-test) returns otherwise. 
+
+#### Shapiro Wilks test
+
+| R Function    | $H_0$     | $H_A$     | Output Vars    | Misc    |
+|---------------- | --------------- | --------------- | --------------- | --------------- |
+| `shapiro.test`    | Data **is** normally distributed    | Data **is NOT** normally distributed    | `p.value`    | N/A   |
+
+For a more complete explanation of the Shapiro Wilks test go to
+[here](/shapiro_wilks.qmd).
+
+### Samples must be independent of one another.
+
+- Assume true for given data.
+- Ensure this is true when performing study design.
+
+### Same Variance across groups
+
+| R Function    | $H_0$     | $H_A$     | Output Vars    | Misc    |
+|---------------- | --------------- | --------------- | --------------- | --------------- |
+| `var.test`    | Variance is equal    | Variance is **NOT** equal | `p.value`, `conf.int`   | Use when comparing only two groups |
+| `leveneTest` | Variance **is** equal | Variance **is not** equal | `p.value` | Use when comparing **more than** two groups |
+
+For a more complete explanation for `var.test` go to [here](/var_test.qmd)
+
+### Running ANOVA tests
+
+1. **Visualize the data.** 
+	 - Plot the data using a [Box Plot](/plots.qmd#box-plots).
+2. Check [Assumptions](#assumptions-of-ANOVA-test)
+3. Run ANOVA test
+
+| R Function    | $H_0$     | $H_A$     | Output Vars    | Misc    |
+|---------------- | --------------- | --------------- | --------------- | --------------- |
+| `aov` | There is **no** significant difference across groups | There **is** significant difference across groups | `PR(>F)` | Run `summary(model)` to extract `PR(>F)` |
+

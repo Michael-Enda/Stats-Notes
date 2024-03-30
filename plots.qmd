@@ -1,0 +1,11 @@
+---
+title: Plots
+date: 2024-03-30
+tags: []
+---
+
+## Box Plots
+
+- Plot in R using `boxplot`
+- Use these when you `x` (independent) variable is categorical and your `y`
+	(dependent) variable is categorical.
