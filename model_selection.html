@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#comparing-models" id="toc-comparing-models" class="nav-link" data-scroll-target="#comparing-models">Comparing Models</a>
   <ul class="collapse">
   <li><a href="#adjusted-r2" id="toc-adjusted-r2" class="nav-link" data-scroll-target="#adjusted-r2">Adjusted R<sup>2</sup></a></li>
-  <li><a href="#akaikes-information-criterion-aic" id="toc-akaikes-information-criterion-aic" class="nav-link" data-scroll-target="#akaikes-information-criterion-aic">Akaike’s Information Criterion (AIC)</a></li>
+  <li><a href="#aic" id="toc-aic" class="nav-link" data-scroll-target="#aic">AIC</a></li>
   <li><a href="#f-test" id="toc-f-test" class="nav-link" data-scroll-target="#f-test">F test</a></li>
   </ul></li>
   </ul>
@@ -209,7 +209,7 @@ Models are non-nested when they don’t share <strong>any</strong> of the same i
 </section>
 <section id="comparing-models" class="level2">
 <h2 class="anchored" data-anchor-id="comparing-models">Comparing Models</h2>
-<p>Once you have decided on a few suitable models you can compare how accurate they are along the following axes to determine which one you want to use. The <a href="#adjusted-r2">adjusted R<sup>2</sup></a> and <a href="#akaikes-information-criterion-aic">AIC</a> comparisons work on both nested, and non-nested models.</p>
+<p>Once you have decided on a few suitable models you can compare how accurate they are along the following axes to determine which one you want to use. The <a href="#adjusted-r2">adjusted R<sup>2</sup></a> and <a href="#aic">AIC</a> comparisons work on both nested, and non-nested models.</p>
 <section id="adjusted-r2" class="level3">
 <h3 class="anchored" data-anchor-id="adjusted-r2">Adjusted R<sup>2</sup></h3>
 <ul>
@@ -220,9 +220,10 @@ Models are non-nested when they don’t share <strong>any</strong> of the same i
 <li>For this axis you want a higher adjusted R<sup>2</sup> value as this shows that the independent variables explain <strong>more</strong> variation of your dependent variable.</li>
 </ul>
 </section>
-<section id="akaikes-information-criterion-aic" class="level3">
-<h3 class="anchored" data-anchor-id="akaikes-information-criterion-aic">Akaike’s Information Criterion (AIC)</h3>
+<section id="aic" class="level3">
+<h3 class="anchored" data-anchor-id="aic">AIC</h3>
 <ul>
+<li><strong>AKA: Akaike’s Information Criterion</strong></li>
 <li>What the AIC represents is outside of the scope of this class however, we can still use the output to compare models.</li>
 <li>You want the model with the <strong>lowest</strong> AIC value.
 <ul>

@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2024-03-30">
 
-<title>. - Qqplot</title>
+<title>. - Similarities Between Anovaancova And Linear Regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -146,7 +146,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#cheat-sheet" id="toc-cheat-sheet" class="nav-link active" data-scroll-target="#cheat-sheet">CHEAT SHEET</a></li>
+  <li><a href="#comparison-of-anova-ancova-and-linear-regression" id="toc-comparison-of-anova-ancova-and-linear-regression" class="nav-link active" data-scroll-target="#comparison-of-anova-ancova-and-linear-regression">Comparison of ANOVA, ANCOVA, and linear regression</a>
+  <ul class="collapse">
+  <li><a href="#similarities" id="toc-similarities" class="nav-link" data-scroll-target="#similarities">Similarities</a></li>
+  <li><a href="#differences" id="toc-differences" class="nav-link" data-scroll-target="#differences">Differences</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -155,7 +159,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Qqplot</h1>
+<h1 class="title">Similarities Between Anovaancova And Linear Regression</h1>
 </div>
 
 
@@ -178,44 +182,49 @@ window.Quarto = {
 </header>
 
 
-<section id="cheat-sheet" class="level2">
-<h2 class="anchored" data-anchor-id="cheat-sheet">CHEAT SHEET</h2>
-<table class="table">
-<colgroup>
-<col style="width: 21%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 19%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>R Function</th>
-<th><span class="math inline">\(H_0\)</span></th>
-<th><span class="math inline">\(H_A\)</span></th>
-<th>Output Vars</th>
-<th>Misc</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>qqPlot</code></td>
-<td></td>
-<td></td>
-<td>Plot of norm quantiles vs input data</td>
-<td>input data is</td>
-</tr>
-<tr class="even">
-<td>normal if all points lie in bounded region of the graph.</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<section id="comparison-of-anova-ancova-and-linear-regression" class="level2">
+<h2 class="anchored" data-anchor-id="comparison-of-anova-ancova-and-linear-regression">Comparison of ANOVA, ANCOVA, and linear regression</h2>
+<section id="similarities" class="level3">
+<h3 class="anchored" data-anchor-id="similarities">Similarities</h3>
+<p><a href="./anova.html">ANOVA</a>, ANCOVA, and <a href="./linear_regression.html">Linear Regression</a> all use the same mathematical model:</p>
+<ul>
+<li>Multiple Regression Model: <span class="math inline">\(Y_i = \beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i} +
+\epsilon_i\)</span></li>
+<li>ANOVA Special Case: <span class="math inline">\(Y_{ijk} = \mu + \alpha_{j} + \beta_{k} + \epsilon_{ijk}\)</span>
+<ul>
+<li>Where:
+<ul>
+<li><span class="math inline">\(\beta_0 = \mu\)</span></li>
+<li><span class="math inline">\(\beta_1 = \alpha\)</span></li>
+<li><span class="math inline">\(\beta_2 = \beta\)</span></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="differences" class="level3">
+<h3 class="anchored" data-anchor-id="differences">Differences</h3>
+<ul>
+<li>Linear Regression
+<ul>
+<li>Follows the assumption of <a href="./linear_regression.html#assumptions">linear regressions</a></li>
+<li><strong>Do not</strong> need to run a post hoc test</li>
+<li>Lose out on pairwise compaisons of groups.
+<ul>
+<li>Can only compare independent variables to one group (which is the intercept)</li>
+</ul></li>
+<li>Use when you are interested in understanding the effect of both the continuous and categorical variable on the dependent variable of interest.</li>
+</ul></li>
+<li>ANCOVA (<a href="./anova.html">ANOVA</a>)
+<ul>
+<li>Follows the assumptions of <a href="#assumptions-of-ancova-test">ANCOVA</a>, or <a href="./anova.html#assumptions-of-anova-test">ANOVA</a></li>
+<li><strong>Must</strong> run a post hoc test to determine which groups are different.</li>
+<li>Returns pairwise comparisons.</li>
+<li>Use when you want to see whether the dependent variable of interest is different between two or more groups, after controlling for a continuous factor.</li>
+</ul></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

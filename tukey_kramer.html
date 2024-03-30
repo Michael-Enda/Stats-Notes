@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2024-03-30">
 
-<title>. - Qqplot</title>
+<title>. - Tukey Kramer</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -146,7 +146,11 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#cheat-sheet" id="toc-cheat-sheet" class="nav-link active" data-scroll-target="#cheat-sheet">CHEAT SHEET</a></li>
+  <li><a href="#assumptions" id="toc-assumptions" class="nav-link active" data-scroll-target="#assumptions">Assumptions</a>
+  <ul class="collapse">
+  <li><a href="#equal-variance-across-groups." id="toc-equal-variance-across-groups." class="nav-link" data-scroll-target="#equal-variance-across-groups.">Equal variance across groups.</a></li>
+  </ul></li>
+  <li><a href="#cheat-sheet" id="toc-cheat-sheet" class="nav-link" data-scroll-target="#cheat-sheet">CHEAT SHEET</a></li>
   </ul>
 </nav>
     </div>
@@ -155,7 +159,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Qqplot</h1>
+<h1 class="title">Tukey Kramer</h1>
 </div>
 
 
@@ -178,8 +182,13 @@ window.Quarto = {
 </header>
 
 
-<section id="cheat-sheet" class="level2">
-<h2 class="anchored" data-anchor-id="cheat-sheet">CHEAT SHEET</h2>
+<section id="assumptions" class="level2">
+<h2 class="anchored" data-anchor-id="assumptions">Assumptions</h2>
+<ul>
+<li>Does <strong>NOT</strong> require equal sample size across groups.</li>
+</ul>
+<section id="equal-variance-across-groups." class="level3">
+<h3 class="anchored" data-anchor-id="equal-variance-across-groups.">Equal variance across groups.</h3>
 <table class="table">
 <colgroup>
 <col style="width: 21%">
@@ -199,18 +208,42 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>qqPlot</code></td>
-<td></td>
-<td></td>
-<td>Plot of norm quantiles vs input data</td>
-<td>input data is</td>
+<td><code>var.test</code></td>
+<td>Variance is equal</td>
+<td>Variance is <strong>NOT</strong> equal</td>
+<td><code>p.value</code>, <code>conf.int</code></td>
+<td>Use when comparing only two groups</td>
 </tr>
 <tr class="even">
-<td>normal if all points lie in bounded region of the graph.</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>leveneTest</code></td>
+<td>Variance <strong>is</strong> equal</td>
+<td>Variance <strong>is not</strong> equal</td>
+<td><code>p.value</code></td>
+<td>Use when comparing <strong>more than</strong> two groups</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="cheat-sheet" class="level2">
+<h2 class="anchored" data-anchor-id="cheat-sheet">CHEAT SHEET</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>R Function</th>
+<th><span class="math inline">\(H_0\)</span></th>
+<th><span class="math inline">\(H_A\)</span></th>
+<th>Output Vars</th>
+<th>Misc</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Uknown</code></td>
+<td>There <strong>is no</strong> statistical difference between groups</td>
+<td>There <strong>is</strong> statistical difference between groups</td>
+<td><code>p adj, diff</code></td>
+<td>Make sure to check <a href="#assumptions">assumptions</a> before running</td>
 </tr>
 </tbody>
 </table>

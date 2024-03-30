@@ -2,54 +2,70 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://Michael-Enda.github.io/Stats-Notes/ttests.html</loc>
-    <lastmod>2024-03-27T14:52:19.829Z</lastmod>
+    <lastmod>2024-03-30T19:33:50.175Z</lastmod>
   </url>
   <url>
     <loc>https://Michael-Enda.github.io/Stats-Notes/multivariate_regression.html</loc>
-    <lastmod>2024-03-27T14:52:19.829Z</lastmod>
+    <lastmod>2024-03-30T19:33:50.175Z</lastmod>
   </url>
   <url>
     <loc>https://Michael-Enda.github.io/Stats-Notes/anova.html</loc>
-    <lastmod>2024-03-27T14:52:19.805Z</lastmod>
+    <lastmod>2024-03-30T19:33:50.155Z</lastmod>
   </url>
   <url>
     <loc>https://Michael-Enda.github.io/Stats-Notes/index.html</loc>
-    <lastmod>2024-03-27T14:52:19.829Z</lastmod>
+    <lastmod>2024-03-30T19:33:50.175Z</lastmod>
   </url>
   <url>
     <loc>https://Michael-Enda.github.io/Stats-Notes/model_selection.html</loc>
-    <lastmod>2024-03-27T14:52:19.829Z</lastmod>
+    <lastmod>2024-03-30T19:33:50.175Z</lastmod>
   </url>
   <url>
-    <loc>https://Michael-Enda.github.io/Stats-Notes/var_test.html</loc>
-    <lastmod>2024-03-27T14:52:19.829Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Michael-Enda.github.io/Stats-Notes/manova.html</loc>
-    <lastmod>2024-03-27T14:52:19.829Z</lastmod>
-  </url>
-  <url>
-    <loc>https://Michael-Enda.github.io/Stats-Notes/shapiro_wilks.html</loc>
-    <lastmod>2024-03-27T14:52:19.829Z</lastmod>
+    <loc>https://Michael-Enda.github.io/Stats-Notes/tukey_hsd.html</loc>
+    <lastmod>2024-03-30T19:33:50.175Z</lastmod>
   </url>
   <url>
     <loc>https://Michael-Enda.github.io/Stats-Notes/qqPlot.html</loc>
-    <lastmod>2024-03-27T14:52:19.829Z</lastmod>
+    <lastmod>2024-03-30T19:33:50.175Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Michael-Enda.github.io/Stats-Notes/tukey_kramer.html</loc>
+    <lastmod>2024-03-30T19:33:50.175Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Michael-Enda.github.io/Stats-Notes/similarities_between_anovaancova_and_linear_regression.html</loc>
+    <lastmod>2024-03-30T19:33:50.175Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Michael-Enda.github.io/Stats-Notes/shapiro_wilks.html</loc>
+    <lastmod>2024-03-30T19:33:50.175Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Michael-Enda.github.io/Stats-Notes/var_test.html</loc>
+    <lastmod>2024-03-30T19:33:50.175Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Michael-Enda.github.io/Stats-Notes/ancova.html</loc>
+    <lastmod>2024-03-30T19:33:50.155Z</lastmod>
+  </url>
+  <url>
+    <loc>https://Michael-Enda.github.io/Stats-Notes/plots.html</loc>
+    <lastmod>2024-03-30T19:33:50.175Z</lastmod>
   </url>
   <url>
     <loc>https://Michael-Enda.github.io/Stats-Notes/about.html</loc>
-    <lastmod>2024-03-27T14:52:19.805Z</lastmod>
+    <lastmod>2024-03-30T19:33:50.155Z</lastmod>
   </url>
   <url>
     <loc>https://Michael-Enda.github.io/Stats-Notes/linear_regression.html</loc>
-    <lastmod>2024-03-27T14:52:19.829Z</lastmod>
+    <lastmod>2024-03-30T19:33:50.175Z</lastmod>
   </url>
   <url>
     <loc>https://Michael-Enda.github.io/Stats-Notes/standardize_variables.html</loc>
-    <lastmod>2024-03-27T14:52:19.829Z</lastmod>
+    <lastmod>2024-03-30T19:33:50.175Z</lastmod>
   </url>
   <url>
     <loc>https://Michael-Enda.github.io/Stats-Notes/variable_importance.html</loc>
-    <lastmod>2024-03-27T14:52:19.829Z</lastmod>
+    <lastmod>2024-03-30T19:33:50.175Z</lastmod>
   </url>
 </urlset>

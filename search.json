@@ -18,7 +18,7 @@
     "href": "ttests.html#test-assumptions",
     "title": "T-tests",
     "section": "Test Assumptions",
-    "text": "Test Assumptions\nTo successfully run a T-test make sure that the data meets all of the following assumptions. - [ ] Data is randomly selected from the population - Assume True - [ ] Observations are independent from each other - Assume True - [ ] Data is normal / sample size is large enough. - Shapiro-Wilk normality test - [ ] Equal variance in response data - [ ] var.test - H_o: Variance is equal\n\nData is randomly sampled\nThis is critical for all statistical tests, it ensure that data points are independent from each other. You can assume this true when given data. It is important to keep this in mind if you are collecting your own data though.\n\n\nObservation are independent from each other\nAssume True\n\n\nResponse data is normal\nThis assumption can be met in one of two ways:\n\nCentral limit theorem\nThanks to the Central Limit Theorem, if each level in your independent data has greater than 30 points (N &gt; 30) then you can assume response data is normal, even if the Shapiro Wilks returns otherwise.\n\n\nShapiro Wilks test\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nshapiro.test\nData is normally distributed\nData is NOT normally distributed\np.value\nN/A\n\n\n\nFor a more complete explanation of the Shapiro Wilks test go to here\n\n\n\nEqual variance in response data\nThis is only if you’re attempting to run a two-sample T-test where you need to compare two different levels within a factor.\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nvar.test\nVariance is equal\nVariance is NOT equal\np.value, conf.int\nN/A\n\n\n\nFor a more complete explanation for var.test go to here"
+    "text": "Test Assumptions\n\nData is randomly sampled\nThis is critical for all statistical tests, it ensure that data points are independent from each other. You can assume this true when given data. It is important to keep this in mind if you are collecting your own data though.\n\n\nObservation are independent from each other\nAssume True\n\n\nResponse data is normal\nThis assumption can be met in one of two ways:\n\nCentral limit theorem\nThanks to the Central Limit Theorem, if each level in your independent data has greater than 30 points (N &gt; 30) then you can assume response data is normal, even if the Shapiro Wilks returns otherwise.\n\n\nShapiro Wilks test\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nshapiro.test\nData is normally distributed\nData is NOT normally distributed\np.value\nN/A\n\n\n\nFor a more complete explanation of the Shapiro Wilks test go to here.\n\n\n\nEqual variance in response data\nThis is only if you’re attempting to run a two-sample T-test where you need to compare two different levels within a factor.\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nvar.test\nVariance is equal\nVariance is NOT equal\np.value, conf.int\nN/A\n\n\n\nFor a more complete explanation for var.test go to here"
   },
   {
     "objectID": "multivariate_regression.html",
@@ -33,6 +33,20 @@
     "title": "Multivariate Regression",
     "section": "",
     "text": "Come up with the question of interest.\n\nEx: Which factors a, b, c are significantly associated with y after controlling for the other variables? =&gt; y ~ a + b + c\n\nLook at the data\n\nRun pairs on the variables of interest for the given dataset.\nNot entirely sure what a non-linear relationship would look like.\n\nCheck multicollinearity across all independent variables - a,b,c\n\nRun cor on the independent variables.\n\nAll examples have use='complete.obs' set within the function. Even looking at Rhelp I don’t know what this means.\n\nTwo independent variables have potentially worrying correlation when their correlation is \\(\\pm 0.5\\).\n\nThis value is dependent on the field and level of analysis you want to perform, it is not a static number.\n\nNOTE: Multicollinearity is only an issue if you want to figure out the effect of each independent variables (a,b,c) on y. You do not have to run this if your goal is to use the linear model to predict y generally.\n\nUse the information on multicollinearity to update your model.\n\nLet’s say that b and c have strong correlation, try to determine which one is more critical in answering your question of interest. If one is less critical, then remove it from the model.\n\nCheck the vif of the model.\n\nNeed to understand vif function more.\n\nCheck the normality of the dependent variable.\n\nThere are multiple ways to do this:\n\nPlot a histogram of the data with hist function.\n\nGood exploratory first step, not enough to claim data is normal.\n\nRun qqPlot on the data, see more info about qqPlot here\nRun shapiro.test on data, see more info about shapiro.test here.\n\nNOTE: The normality of the dependent variable itself is not really important. What is really important is the normality of the residuals of your model. However, normality of the dependent variable is a good proxy for normality of residuals before you run your model.\n\nRun the model.\n\nRun lm with the model you edited in step 4.\n\nCheck the assumptions of the model.\n\nSee how to test assumption of your model here"
+  },
+  {
+    "objectID": "anova.html",
+    "href": "anova.html",
+    "title": "Anova",
+    "section": "",
+    "text": "This assumption can be met in one of two ways:\n\n\nThanks to the Central Limit Theorem, if each level in your independent data has greater than 30 points (N &gt; 30) then you can assume response data is normal, even if the Shapiro Wilks returns otherwise.\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nshapiro.test\nData is normally distributed\nData is NOT normally distributed\np.value\nN/A\n\n\n\nFor a more complete explanation of the Shapiro Wilks test go to here.\n\n\n\n\n\nAssume true for given data.\nEnsure this is true when performing study design.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nvar.test\nVariance is equal\nVariance is NOT equal\np.value, conf.int\nUse when comparing only two groups\n\n\nleveneTest\nVariance is equal\nVariance is not equal\np.value\nUse when comparing more than two groups\n\n\n\nFor a more complete explanation for var.test go to here\n\n\n\n\nVisualize the data.\n\nPlot the data using a Box Plot.\n\nCheck Assumptions\nRun ANOVA test\n\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\naov\nThere is no significant difference across groups\nThere is significant difference across groups\nPR(&gt;F)\nRun summary(model) to extract PR(&gt;F)"
+  },
+  {
+    "objectID": "anova.html#assumptions-of-anova-test",
+    "href": "anova.html#assumptions-of-anova-test",
+    "title": "Anova",
+    "section": "",
+    "text": "This assumption can be met in one of two ways:\n\n\nThanks to the Central Limit Theorem, if each level in your independent data has greater than 30 points (N &gt; 30) then you can assume response data is normal, even if the Shapiro Wilks returns otherwise.\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nshapiro.test\nData is normally distributed\nData is NOT normally distributed\np.value\nN/A\n\n\n\nFor a more complete explanation of the Shapiro Wilks test go to here.\n\n\n\n\n\nAssume true for given data.\nEnsure this is true when performing study design.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nvar.test\nVariance is equal\nVariance is NOT equal\np.value, conf.int\nUse when comparing only two groups\n\n\nleveneTest\nVariance is equal\nVariance is not equal\np.value\nUse when comparing more than two groups\n\n\n\nFor a more complete explanation for var.test go to here\n\n\n\n\nVisualize the data.\n\nPlot the data using a Box Plot.\n\nCheck Assumptions\nRun ANOVA test\n\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\naov\nThere is no significant difference across groups\nThere is significant difference across groups\nPR(&gt;F)\nRun summary(model) to extract PR(&gt;F)"
   },
   {
     "objectID": "index.html",
@@ -53,21 +67,28 @@
     "href": "index.html#main-tests",
     "title": "Index",
     "section": "Main Tests",
-    "text": "Main Tests\n\nT-Tests\nLinear Regression"
+    "text": "Main Tests\n\nT-Tests\nLinear Regression\nANCOVA\nANOVA"
   },
   {
     "objectID": "index.html#sub-tests",
     "href": "index.html#sub-tests",
     "title": "Index",
     "section": "Sub Tests",
-    "text": "Sub Tests\n\nNormality\n\nShapiro Wilks - Not done\nqqPlot - Not done"
+    "text": "Sub Tests\n\nNormality\n\nShapiro Wilks - Not done\nqqPlot - Not done\n\n\n\nPost Hoc\n\nTukey HSD\nTukey Kramer"
   },
   {
     "objectID": "index.html#unit-3",
     "href": "index.html#unit-3",
     "title": "Index",
     "section": "Unit 3",
-    "text": "Unit 3\n\nMultivariate Regression\nModel Selection\nVariable Importance\nANVOCA\nInteraction Term\nFixed vs Random Effects\nMixed Models"
+    "text": "Unit 3\n\nMultivariate Regression\nModel Selection\nVariable Importance\nANCOVA\nSimilarities between ANOVA/ANCOVA and Linear Regression\nInteraction Term\nFixed vs Random Effects\nMixed Models"
+  },
+  {
+    "objectID": "index.html#misc",
+    "href": "index.html#misc",
+    "title": "Index",
+    "section": "Misc",
+    "text": "Misc\n\nPlots"
   },
   {
     "objectID": "index.html#todo",
@@ -102,7 +123,98 @@
     "href": "model_selection.html#comparing-models",
     "title": "Model Selection",
     "section": "Comparing Models",
-    "text": "Comparing Models\nOnce you have decided on a few suitable models you can compare how accurate they are along the following axes to determine which one you want to use. The adjusted R2 and AIC comparisons work on both nested, and non-nested models.\n\nAdjusted R2\n\nRun each of your models then compare the adjusted R2 values (NOT the Multiple R2 values).\n\nYou can extract the adjusted R2 value from the summary function via summary(model)$adj.r.squared.\n\nFor this axis you want a higher adjusted R2 value as this shows that the independent variables explain more variation of your dependent variable.\n\n\n\nAkaike’s Information Criterion (AIC)\n\nWhat the AIC represents is outside of the scope of this class however, we can still use the output to compare models.\nYou want the model with the lowest AIC value.\n\nYou don’t really care about small differences (&lt; 5) in AIC.\n\nCalculate the AIC of a model by running the AIC function on the model - AIC(model)\n\n\n\nF test\nThis model is not covered in detail in the class\n\nUse this to tell if your models are significantly different.\nCalculate by running an ANOVA test on the different regression outputs."
+    "text": "Comparing Models\nOnce you have decided on a few suitable models you can compare how accurate they are along the following axes to determine which one you want to use. The adjusted R2 and AIC comparisons work on both nested, and non-nested models.\n\nAdjusted R2\n\nRun each of your models then compare the adjusted R2 values (NOT the Multiple R2 values).\n\nYou can extract the adjusted R2 value from the summary function via summary(model)$adj.r.squared.\n\nFor this axis you want a higher adjusted R2 value as this shows that the independent variables explain more variation of your dependent variable.\n\n\n\nAIC\n\nAKA: Akaike’s Information Criterion\nWhat the AIC represents is outside of the scope of this class however, we can still use the output to compare models.\nYou want the model with the lowest AIC value.\n\nYou don’t really care about small differences (&lt; 5) in AIC.\n\nCalculate the AIC of a model by running the AIC function on the model - AIC(model)\n\n\n\nF test\nThis model is not covered in detail in the class\n\nUse this to tell if your models are significantly different.\nCalculate by running an ANOVA test on the different regression outputs."
+  },
+  {
+    "objectID": "tukey_hsd.html",
+    "href": "tukey_hsd.html",
+    "title": "Tukey Hsd",
+    "section": "",
+    "text": "Check N for each group being tested.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nvar.test\nVariance is equal\nVariance is NOT equal\np.value, conf.int\nUse when comparing only two groups\n\n\nleveneTest\nVariance is equal\nVariance is not equal\np.value\nUse when comparing more than two groups"
+  },
+  {
+    "objectID": "tukey_hsd.html#assumptions",
+    "href": "tukey_hsd.html#assumptions",
+    "title": "Tukey Hsd",
+    "section": "",
+    "text": "Check N for each group being tested.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nvar.test\nVariance is equal\nVariance is NOT equal\np.value, conf.int\nUse when comparing only two groups\n\n\nleveneTest\nVariance is equal\nVariance is not equal\np.value\nUse when comparing more than two groups"
+  },
+  {
+    "objectID": "tukey_hsd.html#cheat-sheet",
+    "href": "tukey_hsd.html#cheat-sheet",
+    "title": "Tukey Hsd",
+    "section": "CHEAT SHEET",
+    "text": "CHEAT SHEET\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nTukeyHSD\nThere is no statistical difference between groups\nThere is statistical difference between groups\np adj, diff\nMake sure to check assumptions before running"
+  },
+  {
+    "objectID": "qqPlot.html",
+    "href": "qqPlot.html",
+    "title": "Qqplot",
+    "section": "",
+    "text": "R Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nqqPlot\n\n\nPlot of norm quantiles vs input data\ninput data is\n\n\nnormal if all points lie in bounded region of the graph."
+  },
+  {
+    "objectID": "qqPlot.html#cheat-sheet",
+    "href": "qqPlot.html#cheat-sheet",
+    "title": "Qqplot",
+    "section": "",
+    "text": "R Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nqqPlot\n\n\nPlot of norm quantiles vs input data\ninput data is\n\n\nnormal if all points lie in bounded region of the graph."
+  },
+  {
+    "objectID": "tukey_kramer.html",
+    "href": "tukey_kramer.html",
+    "title": "Tukey Kramer",
+    "section": "",
+    "text": "Does NOT require equal sample size across groups.\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nvar.test\nVariance is equal\nVariance is NOT equal\np.value, conf.int\nUse when comparing only two groups\n\n\nleveneTest\nVariance is equal\nVariance is not equal\np.value\nUse when comparing more than two groups"
+  },
+  {
+    "objectID": "tukey_kramer.html#assumptions",
+    "href": "tukey_kramer.html#assumptions",
+    "title": "Tukey Kramer",
+    "section": "",
+    "text": "Does NOT require equal sample size across groups.\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nvar.test\nVariance is equal\nVariance is NOT equal\np.value, conf.int\nUse when comparing only two groups\n\n\nleveneTest\nVariance is equal\nVariance is not equal\np.value\nUse when comparing more than two groups"
+  },
+  {
+    "objectID": "tukey_kramer.html#cheat-sheet",
+    "href": "tukey_kramer.html#cheat-sheet",
+    "title": "Tukey Kramer",
+    "section": "CHEAT SHEET",
+    "text": "CHEAT SHEET\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nUknown\nThere is no statistical difference between groups\nThere is statistical difference between groups\np adj, diff\nMake sure to check assumptions before running"
+  },
+  {
+    "objectID": "similarities_between_anovaancova_and_linear_regression.html",
+    "href": "similarities_between_anovaancova_and_linear_regression.html",
+    "title": "Similarities Between Anovaancova And Linear Regression",
+    "section": "",
+    "text": "ANOVA, ANCOVA, and Linear Regression all use the same mathematical model:\n\nMultiple Regression Model: \\(Y_i = \\beta_0 + \\beta_1 X_{1i} + \\beta_2 X_{2i} +\n\\epsilon_i\\)\nANOVA Special Case: \\(Y_{ijk} = \\mu + \\alpha_{j} + \\beta_{k} + \\epsilon_{ijk}\\)\n\nWhere:\n\n\\(\\beta_0 = \\mu\\)\n\\(\\beta_1 = \\alpha\\)\n\\(\\beta_2 = \\beta\\)\n\n\n\n\n\n\n\nLinear Regression\n\nFollows the assumption of linear regressions\nDo not need to run a post hoc test\nLose out on pairwise compaisons of groups.\n\nCan only compare independent variables to one group (which is the intercept)\n\nUse when you are interested in understanding the effect of both the continuous and categorical variable on the dependent variable of interest.\n\nANCOVA (ANOVA)\n\nFollows the assumptions of ANCOVA, or ANOVA\nMust run a post hoc test to determine which groups are different.\nReturns pairwise comparisons.\nUse when you want to see whether the dependent variable of interest is different between two or more groups, after controlling for a continuous factor."
+  },
+  {
+    "objectID": "similarities_between_anovaancova_and_linear_regression.html#comparison-of-anova-ancova-and-linear-regression",
+    "href": "similarities_between_anovaancova_and_linear_regression.html#comparison-of-anova-ancova-and-linear-regression",
+    "title": "Similarities Between Anovaancova And Linear Regression",
+    "section": "",
+    "text": "ANOVA, ANCOVA, and Linear Regression all use the same mathematical model:\n\nMultiple Regression Model: \\(Y_i = \\beta_0 + \\beta_1 X_{1i} + \\beta_2 X_{2i} +\n\\epsilon_i\\)\nANOVA Special Case: \\(Y_{ijk} = \\mu + \\alpha_{j} + \\beta_{k} + \\epsilon_{ijk}\\)\n\nWhere:\n\n\\(\\beta_0 = \\mu\\)\n\\(\\beta_1 = \\alpha\\)\n\\(\\beta_2 = \\beta\\)\n\n\n\n\n\n\n\nLinear Regression\n\nFollows the assumption of linear regressions\nDo not need to run a post hoc test\nLose out on pairwise compaisons of groups.\n\nCan only compare independent variables to one group (which is the intercept)\n\nUse when you are interested in understanding the effect of both the continuous and categorical variable on the dependent variable of interest.\n\nANCOVA (ANOVA)\n\nFollows the assumptions of ANCOVA, or ANOVA\nMust run a post hoc test to determine which groups are different.\nReturns pairwise comparisons.\nUse when you want to see whether the dependent variable of interest is different between two or more groups, after controlling for a continuous factor."
+  },
+  {
+    "objectID": "shapiro_wilks.html",
+    "href": "shapiro_wilks.html",
+    "title": "Shapiro Wilks Test for Normality",
+    "section": "",
+    "text": "This page is under construction."
+  },
+  {
+    "objectID": "shapiro_wilks.html#wip",
+    "href": "shapiro_wilks.html#wip",
+    "title": "Shapiro Wilks Test for Normality",
+    "section": "",
+    "text": "This page is under construction."
+  },
+  {
+    "objectID": "shapiro_wilks.html#cheat-sheet-table",
+    "href": "shapiro_wilks.html#cheat-sheet-table",
+    "title": "Shapiro Wilks Test for Normality",
+    "section": "CHEAT SHEET TABLE",
+    "text": "CHEAT SHEET TABLE\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nshapiro.test\nData is normally distributed\nData is NOT normally distributed\np.value\nN/A"
   },
   {
     "objectID": "var_test.html",
@@ -126,25 +238,46 @@
     "text": "CHEAT SHEET table\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nvar.test\nVariance is equal\nVariance is NOT equal\np.value, conf.int\nN/A"
   },
   {
-    "objectID": "shapiro_wilks.html",
-    "href": "shapiro_wilks.html",
-    "title": "Shapiro Wilks Test for Normality",
+    "objectID": "ancova.html",
+    "href": "ancova.html",
+    "title": "Ancova",
     "section": "",
-    "text": "This page is under construction."
+    "text": "Independent Variable: Categorical AND Continuous\nDependent Variable: Continuous\nUse when you want to see how the dependent variable varies based on group (categorical variable) after controlling for other (continuous) variables."
   },
   {
-    "objectID": "shapiro_wilks.html#wip",
-    "href": "shapiro_wilks.html#wip",
-    "title": "Shapiro Wilks Test for Normality",
+    "objectID": "ancova.html#when-to-run-ancova-tests",
+    "href": "ancova.html#when-to-run-ancova-tests",
+    "title": "Ancova",
     "section": "",
-    "text": "This page is under construction."
+    "text": "Independent Variable: Categorical AND Continuous\nDependent Variable: Continuous\nUse when you want to see how the dependent variable varies based on group (categorical variable) after controlling for other (continuous) variables."
   },
   {
-    "objectID": "shapiro_wilks.html#cheat-sheet-table",
-    "href": "shapiro_wilks.html#cheat-sheet-table",
-    "title": "Shapiro Wilks Test for Normality",
-    "section": "CHEAT SHEET TABLE",
-    "text": "CHEAT SHEET TABLE\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nshapiro.test\nData is normally distributed\nData is NOT normally distributed\np.value\nN/A"
+    "objectID": "ancova.html#assumptions-of-ancova-test",
+    "href": "ancova.html#assumptions-of-ancova-test",
+    "title": "Ancova",
+    "section": "Assumptions of ANCOVA test",
+    "text": "Assumptions of ANCOVA test\n\nResiduals are normally distributed\nThis assumption can be test in two ways:\n\nqqPlot\n\nRun qqPlot on the residuals of the model, see more info about qqPlot here\n\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nqqPlot\n\n\nPlot of norm quantiles vs input data\ninput data is\n\n\nnormal if all points lie in bounded region of the graph.\n\n\n\n\n\n\n\n\n\nShapiro Wilks test\n\nRun shapiro.test on residuals of the model, see more info about shapiro.test here.\n\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nshapiro.test\nData is normally distributed\nData is NOT normally distributed\np.value\nN/A\n\n\n\nFor a more complete explanation of the Shapiro Wilks test go to here.\n\n\n\nSamples must be independent of one another.\n\nAssume true for given data.\nEnsure this is true when performing study design.\n\n\n\nSame Variance across groups\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nvar.test\nVariance is equal\nVariance is NOT equal\np.value, conf.int\nUse when comparing only two groups\n\n\nleveneTest\nVariance is equal\nVariance is not equal\np.value\nUse when comparing more than two groups\n\n\n\nFor a more complete explanation for var.test go to here\n\n\nThere is a linear relationship between dependent and independent variables\n\nPlot your data with: plot(dendendent ~ indpendent). Then look to see if relationship is clearly non-linear."
+  },
+  {
+    "objectID": "ancova.html#running-ancova-tests",
+    "href": "ancova.html#running-ancova-tests",
+    "title": "Ancova",
+    "section": "Running ANCOVA tests",
+    "text": "Running ANCOVA tests\n\nVisualize the data.\n\nPlot the data using a Box Plot.\n\nCheck Assumptions\nRun ANCOVA test.\n\nNOTE: The order of independent variables matter when running this test. First variable should be the independent variable you want to test for. The following variables should be the independent variables you want to control for.\n\n\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\naov\nThere is no significant difference across groups\nThere is significant difference across groups\nPR(&gt;F)\nRun summary(model) to extract PR(&gt;F)\n\n\n\n\nInterpret output of aov test.\n\nIf PR(&gt;F) is less than alpha then you can say there is a difference between groups. But you cannot say which direction the difference goes.\n\nRun post-hoc tests.\n\nRun either:\n\nWhen variance between groups are equal: Tukey HSD\nWhen variance between groups is not equal: Tukey Kramer\n\n\n\n\n\n\n\n\n\n\n\n\n\nR Function\n\\(H_0\\)\n\\(H_A\\)\nOutput Vars\nMisc\n\n\n\n\nTukeyHSD\nThere is no statistical difference between groups\nThere is statistical difference between groups\np adj, diff\nNA\n\n\nUnknown\nThere is no statistical difference between groups\nThere is statistical difference between groups\np adj, diff\nNA\n\n\n\n\nInterpret output of post-hoc tests\n\nTukeyHSD outputs pair-wise difference tests (similar to Two-Sample T-tests) which will tell you which dependent variables are different from each other (p adj) and how they are different (diff)."
+  },
+  {
+    "objectID": "plots.html",
+    "href": "plots.html",
+    "title": "Plots",
+    "section": "",
+    "text": "Plot in R using boxplot\nUse these when you x (independent) variable is categorical and your y (dependent) variable is categorical."
+  },
+  {
+    "objectID": "plots.html#box-plots",
+    "href": "plots.html#box-plots",
+    "title": "Plots",
+    "section": "",
+    "text": "Plot in R using boxplot\nUse these when you x (independent) variable is categorical and your y (dependent) variable is categorical."
   },
   {
     "objectID": "about.html",

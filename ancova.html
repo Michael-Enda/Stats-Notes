@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2024-03-30">
 
-<title>. - Qqplot</title>
+<title>. - Ancova</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -146,7 +146,15 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#cheat-sheet" id="toc-cheat-sheet" class="nav-link active" data-scroll-target="#cheat-sheet">CHEAT SHEET</a></li>
+  <li><a href="#when-to-run-ancova-tests" id="toc-when-to-run-ancova-tests" class="nav-link active" data-scroll-target="#when-to-run-ancova-tests">When to run ANCOVA tests</a></li>
+  <li><a href="#assumptions-of-ancova-test" id="toc-assumptions-of-ancova-test" class="nav-link" data-scroll-target="#assumptions-of-ancova-test">Assumptions of ANCOVA test</a>
+  <ul class="collapse">
+  <li><a href="#residuals-are-normally-distributed" id="toc-residuals-are-normally-distributed" class="nav-link" data-scroll-target="#residuals-are-normally-distributed">Residuals are normally distributed</a></li>
+  <li><a href="#samples-must-be-independent-of-one-another." id="toc-samples-must-be-independent-of-one-another." class="nav-link" data-scroll-target="#samples-must-be-independent-of-one-another.">Samples must be independent of one another.</a></li>
+  <li><a href="#same-variance-across-groups" id="toc-same-variance-across-groups" class="nav-link" data-scroll-target="#same-variance-across-groups">Same Variance across groups</a></li>
+  <li><a href="#there-is-a-linear-relationship-between-dependent-and-independent-variables" id="toc-there-is-a-linear-relationship-between-dependent-and-independent-variables" class="nav-link" data-scroll-target="#there-is-a-linear-relationship-between-dependent-and-independent-variables">There is a linear relationship between dependent and independent variables</a></li>
+  </ul></li>
+  <li><a href="#running-ancova-tests" id="toc-running-ancova-tests" class="nav-link" data-scroll-target="#running-ancova-tests">Running ANCOVA tests</a></li>
   </ul>
 </nav>
     </div>
@@ -155,7 +163,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Qqplot</h1>
+<h1 class="title">Ancova</h1>
 </div>
 
 
@@ -178,8 +186,24 @@ window.Quarto = {
 </header>
 
 
-<section id="cheat-sheet" class="level2">
-<h2 class="anchored" data-anchor-id="cheat-sheet">CHEAT SHEET</h2>
+<section id="when-to-run-ancova-tests" class="level2">
+<h2 class="anchored" data-anchor-id="when-to-run-ancova-tests">When to run ANCOVA tests</h2>
+<ul>
+<li><strong>Independent Variable:</strong> Categorical <em>AND</em> Continuous</li>
+<li><strong>Dependent Variable:</strong> Continuous</li>
+<li>Use when you want to see how the dependent variable varies based on group (categorical variable) after controlling for other (continuous) variables.</li>
+</ul>
+</section>
+<section id="assumptions-of-ancova-test" class="level2">
+<h2 class="anchored" data-anchor-id="assumptions-of-ancova-test">Assumptions of ANCOVA test</h2>
+<section id="residuals-are-normally-distributed" class="level3">
+<h3 class="anchored" data-anchor-id="residuals-are-normally-distributed">Residuals are normally distributed</h3>
+<p>This assumption can be test in two ways:</p>
+<section id="qqplot" class="level4">
+<h4 class="anchored" data-anchor-id="qqplot">qqPlot</h4>
+<ul>
+<li>Run <code>qqPlot</code> on the residuals of the model, see more info about <code>qqPlot</code> <a href="./qqPlot.html">here</a></li>
+</ul>
 <table class="table">
 <colgroup>
 <col style="width: 21%">
@@ -214,6 +238,188 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+</section>
+<section id="shapiro-wilks-test" class="level4">
+<h4 class="anchored" data-anchor-id="shapiro-wilks-test">Shapiro Wilks test</h4>
+<ul>
+<li>Run <code>shapiro.test</code> on residuals of the model, see more info about <code>shapiro.test</code> <a href="./shapiro_wilks.html">here</a>.</li>
+</ul>
+<table class="table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>R Function</th>
+<th><span class="math inline">\(H_0\)</span></th>
+<th><span class="math inline">\(H_A\)</span></th>
+<th>Output Vars</th>
+<th>Misc</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>shapiro.test</code></td>
+<td>Data <strong>is</strong> normally distributed</td>
+<td>Data <strong>is NOT</strong> normally distributed</td>
+<td><code>p.value</code></td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<p>For a more complete explanation of the Shapiro Wilks test go to <a href="./shapiro_wilks.html">here</a>.</p>
+</section>
+</section>
+<section id="samples-must-be-independent-of-one-another." class="level3">
+<h3 class="anchored" data-anchor-id="samples-must-be-independent-of-one-another.">Samples must be independent of one another.</h3>
+<ul>
+<li>Assume true for given data.</li>
+<li>Ensure this is true when performing study design.</li>
+</ul>
+</section>
+<section id="same-variance-across-groups" class="level3">
+<h3 class="anchored" data-anchor-id="same-variance-across-groups">Same Variance across groups</h3>
+<table class="table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>R Function</th>
+<th><span class="math inline">\(H_0\)</span></th>
+<th><span class="math inline">\(H_A\)</span></th>
+<th>Output Vars</th>
+<th>Misc</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>var.test</code></td>
+<td>Variance is equal</td>
+<td>Variance is <strong>NOT</strong> equal</td>
+<td><code>p.value</code>, <code>conf.int</code></td>
+<td>Use when comparing only two groups</td>
+</tr>
+<tr class="even">
+<td><code>leveneTest</code></td>
+<td>Variance <strong>is</strong> equal</td>
+<td>Variance <strong>is not</strong> equal</td>
+<td><code>p.value</code></td>
+<td>Use when comparing <strong>more than</strong> two groups</td>
+</tr>
+</tbody>
+</table>
+<p>For a more complete explanation for <code>var.test</code> go to <a href="./var_test.html">here</a></p>
+</section>
+<section id="there-is-a-linear-relationship-between-dependent-and-independent-variables" class="level3">
+<h3 class="anchored" data-anchor-id="there-is-a-linear-relationship-between-dependent-and-independent-variables">There is a linear relationship between dependent and independent variables</h3>
+<ul>
+<li>Plot your data with: <code>plot(dendendent ~ indpendent)</code>. Then look to see if relationship is clearly non-linear.</li>
+</ul>
+</section>
+</section>
+<section id="running-ancova-tests" class="level2">
+<h2 class="anchored" data-anchor-id="running-ancova-tests">Running ANCOVA tests</h2>
+<ol type="1">
+<li><strong>Visualize the data.</strong>
+<ul>
+<li>Plot the data using a <a href="./plots.html#box-plots">Box Plot</a>.</li>
+</ul></li>
+<li><strong>Check <a href="#assumptions-of-ancova-test">Assumptions</a></strong></li>
+<li><strong>Run ANCOVA test.</strong>
+<ul>
+<li><strong>NOTE:</strong> The order of independent variables matter when running this test. First variable should be the independent variable you want to <strong>test</strong> for. The following variables should be the independent variables you want to <strong>control</strong> for.</li>
+</ul></li>
+</ol>
+<table class="table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>R Function</th>
+<th><span class="math inline">\(H_0\)</span></th>
+<th><span class="math inline">\(H_A\)</span></th>
+<th>Output Vars</th>
+<th>Misc</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>aov</code></td>
+<td>There is <strong>no</strong> significant difference across groups</td>
+<td>There <strong>is</strong> significant difference across groups</td>
+<td><code>PR(&gt;F)</code></td>
+<td>Run <code>summary(model)</code> to extract <code>PR(&gt;F)</code></td>
+</tr>
+</tbody>
+</table>
+<ol start="4" type="1">
+<li>Interpret output of <code>aov</code> test.
+<ul>
+<li>If <code>PR(&gt;F)</code> is less than alpha then you can say there is a difference between groups. But you <strong>cannot</strong> say which direction the difference goes.</li>
+</ul></li>
+<li>Run post-hoc tests.
+<ul>
+<li>Run either:
+<ul>
+<li>When variance between groups are equal: <a href="./tukey_hsd.html">Tukey HSD</a></li>
+<li>When variance between groups <strong>is not</strong> equal: <a href="./tukey_kramer.html">Tukey Kramer</a></li>
+</ul></li>
+</ul></li>
+</ol>
+<table class="table">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>R Function</th>
+<th><span class="math inline">\(H_0\)</span></th>
+<th><span class="math inline">\(H_A\)</span></th>
+<th>Output Vars</th>
+<th>Misc</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>TukeyHSD</code></td>
+<td>There <strong>is no</strong> statistical difference between groups</td>
+<td>There <strong>is</strong> statistical difference between groups</td>
+<td><code>p adj, diff</code></td>
+<td>NA</td>
+</tr>
+<tr class="even">
+<td><code>Unknown</code></td>
+<td>There <strong>is no</strong> statistical difference between groups</td>
+<td>There <strong>is</strong> statistical difference between groups</td>
+<td><code>p adj, diff</code></td>
+<td>NA</td>
+</tr>
+</tbody>
+</table>
+<ol start="6" type="1">
+<li>Interpret output of post-hoc tests
+<ul>
+<li><code>TukeyHSD</code> outputs pair-wise difference tests (similar to <a href="./ttests.html#two-sample-t-test">Two-Sample T-tests</a>) which will tell you which dependent variables are different from each other (<code>p adj</code>) and how they are different (<code>diff</code>).</li>
+</ul></li>
+</ol>
 
 
 </section>
