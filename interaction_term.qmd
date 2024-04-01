@@ -1,0 +1,84 @@
+---
+title: Interaction Term
+date: 2024-04-01
+tags: []
+---
+
+## Uses
+
+- Given the following regression $y ~ x_1 + x_2 + x_1 * x_2$ we are examining
+whether $x_2$ has a different association with $y$ depending on the value of
+$x_1$.
+	- This is useful when you want to ask if both $x_1, x_2$ have different
+	impacts when **both** are considered than when either of them are controlled
+	for (the default for [ANOVA](/anova.qmd), [ANCOVA](/ancova.qmd), and [Linear Regressions](/linear_regression.qmd))
+- Can be use in [ANOVA](/anova.qmd), [ANCOVA](/ancova.qmd), and [Linear
+Regressions](/linear_regression.qmd).
+- Can interact the following:
+	- Categorical and a Categorical variable
+	- Continuous and a Categorical variable
+	- Continuous and a Continuous variable
+		- This *can* be done, but interpreting the output is complex, and thus out
+			of the scope of this class.
+
+## Examples
+
+- For all of these models the following variables are used:
+
+
+### Linear Regressions
+
+Given the model $y ~ x_1 + x_2$ with the following variables:
+	- $y$ - Our response/dependent variable, a continuous variable.
+	- $x_1$ - One of our predictor/independent variables, a **categorical**
+	variable.
+	- $x_2$ - One of our predictor/independent variables, a **categorical**
+	variable.
+After running `sum(lmmod)`, we can interpret the `Coefficients` table as
+follows: 
+
+| Variable    | Estimate Std.    | Interpretation    |
+|---------------- | --------------- | --------------- |
+| `(Intercept)`    | 50    | When both $x_1$ **AND** $x_2$ are zero, the mean value of $y$ is 50.    |
+| $x_1$     | 10    | When $x_2$ is zero, the mean score is 10 **higher** than `(Intercept)` - 50 + 10|
+| $x_2$    | 20   | When $x_1$ is zero, the mean score is 20 **higher** than `(Intercept)` - 50 + 20   |
+
+### ANOVA
+
+Given the model $y ~ x_1 + x_2 x_1 * x_2$, with the following variables:
+	- $y$ - Our response/dependent variable, a continuous variable.
+	- $x_1$ - One of our predictor/independent variables, a **categorical**
+	variable.
+	- $x_2$ - One of our predictor/independent variables, a **categorical**
+	variable.
+After running `sum(aovmod)`, we can
+interpret the output as follows:
+
+| Variable    | Estimate Std.    | Interpretation    |
+|---------------- | --------------- | --------------- |
+| `(Intercept)`    | 50    | When both $x_1$ **AND** $x_2$ are zero, the mean value of $y$ is 50.    |
+| $x_1$     | 10    | When $x_2$ is zero, the mean score is 10 **higher** than `(Intercept)` - 50 + 10|
+| $x_2$    | 20   | When $x_1$ is zero, the mean score is 20 **higher** than `(Intercept)` - 50 + 20   |
+| $x_1:x_2$ | 30 | When **neither** $x_1$ or $x_2$ are zero, the mean score is 30 **higher** than for $x_1$ or $x_2$ **individually** - 50 + 10 + 20 + 30|
+
+**NOTE:** Since this is an [ANOVA](/anova.qmd) test, we still need to run [Post Hoc](/index.qmd#post-hoc) test to understand the direction of the difference.
+
+### ANCOVA
+
+Given the model $y ~ x_1 + a_1 + x_1 * a_1$, with the following variables:
+	- $y$ - Our response/dependent variable, a continuous variable.
+	- $x_1$ - One of our predictor/independent variables, a **categorical**
+	variable.
+	- $a_1$ - One of our predictor/independent variables, a **continuous**
+variable.
+
+After running `sum(aovmod)`, we can
+interpret the output as follows:
+
+| Variable    | Estimate Std.    | Interpretation    |
+|---------------- | --------------- | --------------- |
+| `(Intercept)`    | 50    | When both $x_1$ **AND** $a_1$ are zero, the mean value of $y$ is 50.    |
+| $x_1$     | 10    | When $x_2$ is zero, the mean score is 10 **higher** than `(Intercept)` - 50 + 10|
+| $a_1$    | 20   | When $x_1$ is zero, for every 1 increase in $a_1$ the mean score **increases** by 20 |
+| $x_1:x_2$ | 30 | When $x_1$ **is not** zero for every 1 increase in $a_1$ the meas score increases by 30 |
+

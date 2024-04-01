@@ -1,0 +1,36 @@
+---
+title: Mixed Models
+date: 2024-04-01
+tags: []
+---
+
+## What are linear mixed effect models
+
+Linear Mixed Effects Model
+: A statistical technique that extends the traditional [Linear
+Models](/linear_models.qmd), to handel data that are collected in groups or
+hierarchically and may not be independent within those groups.
+
+### Structure of a mixed effect model
+
+- Mixed-effect = fixed effects + random effects
+	- **Fixed Effects**: Consistent and predictable factors that affect the
+	response variable.
+	- **Random Effects:** Introduce variability within the groups and are not of
+		primary interest but **cannot** be ignored.
+
+## Uses
+
+- When data is **clustered**.
+	- i.e. measurements from subjects in a medical study or
+	- Data has a nested structure.
+- Handles the **non-independence** of data.
+	- Models the in-group deviations from the overall model structure.
+	- Allows for accurate estimation of both **population-level** effects and
+	**group-level** variability.
+- Accounts for: 
+	- **observed variability** explained by **Fixed variables** 
+	- **unobserved variability** due to **random variable** 
+- Can be used when data might be **unbalanced or missing**.
+	- Cannot use other [Linear Models](/linear_models.qmd) as their assumptions
+	include independence among observations.

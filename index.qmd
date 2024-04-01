@@ -34,9 +34,9 @@ title: "Index"
 - [Variable Importance](/variable_importance.qmd)
 - [ANCOVA](/ancova.qmd)
 - [Similarities between ANOVA/ANCOVA and Linear Regression](/similarities_between_anovaancova_and_linear_regression.md)
-- [Interaction Term](/interaction_term.md)
-- [Fixed vs Random Effects](/fixed_vs_random_effects.md)
-- [Mixed Models](/mixed_models.md)
+- [Interaction Term](/interaction_term.qmd)
+- [Fixed vs Random Effects](/fixed_vs_random_effects.qmd)
+- [Mixed Models](/mixed_models.qmd)
 
 ## Misc
 
