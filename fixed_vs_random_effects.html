@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-04-01">
 
-<title>. - Index</title>
+<title>. - Fixed Vs Random Effects</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,9 +67,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -92,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -119,16 +117,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#deciding-what-test-to-run" id="toc-deciding-what-test-to-run" class="nav-link active" data-scroll-target="#deciding-what-test-to-run">Deciding What Test to Run</a></li>
-  <li><a href="#main-tests" id="toc-main-tests" class="nav-link" data-scroll-target="#main-tests">Main Tests</a></li>
-  <li><a href="#sub-tests" id="toc-sub-tests" class="nav-link" data-scroll-target="#sub-tests">Sub Tests</a>
-  <ul class="collapse">
-  <li><a href="#normality" id="toc-normality" class="nav-link" data-scroll-target="#normality">Normality</a></li>
-  <li><a href="#post-hoc" id="toc-post-hoc" class="nav-link" data-scroll-target="#post-hoc">Post Hoc</a></li>
-  </ul></li>
-  <li><a href="#unit-3" id="toc-unit-3" class="nav-link" data-scroll-target="#unit-3">Unit 3</a></li>
-  <li><a href="#misc" id="toc-misc" class="nav-link" data-scroll-target="#misc">Misc</a></li>
-  <li><a href="#todo" id="toc-todo" class="nav-link" data-scroll-target="#todo">TODO</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
   </ul>
 </nav>
     </div>
@@ -137,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Index</h1>
+<h1 class="title">Fixed Vs Random Effects</h1>
 </div>
 
 
@@ -145,6 +134,12 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 1, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -154,173 +149,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="deciding-what-test-to-run" class="level2">
-<h2 class="anchored" data-anchor-id="deciding-what-test-to-run">Deciding What Test to Run</h2>
-<div class="cell" data-file="mermaid_diagrams/test_choice_flowchart.mmd" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart TD
-  subgraph Data
-    subgraph Independent
-      icon[Continuous]
-      icat[Categorical]
-    end
-    subgraph Dependent
-      dcon[Continuous]
-      dcat[Categorical]
-    end
-  end
-  subgraph Tests
-    icat &amp; dcon --&gt; t{T-tests}
-    icat &amp; dcat --&gt; c{Chi-Square}
-    icon &amp; dcon --&gt; r{Regression}
-    icon &amp; dcat --&gt; l{Logistic Regression} 
-  end
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="main-tests" class="level2">
-<h2 class="anchored" data-anchor-id="main-tests">Main Tests</h2>
-<ul>
-<li><a href="./ttests.html">T-Tests</a></li>
-<li><a href="./linear_regression.html">Linear Regression</a></li>
-<li><a href="./ancova.html">ANCOVA</a></li>
-<li><a href="./anova.html">ANOVA</a></li>
-</ul>
-</section>
-<section id="sub-tests" class="level2">
-<h2 class="anchored" data-anchor-id="sub-tests">Sub Tests</h2>
-<section id="normality" class="level3">
-<h3 class="anchored" data-anchor-id="normality">Normality</h3>
-<ul>
-<li><a href="./shapiro_wilks.html">Shapiro Wilks</a> - Not done</li>
-<li><a href="./qqPlot.html">qqPlot</a> - Not done</li>
-</ul>
-</section>
-<section id="post-hoc" class="level3">
-<h3 class="anchored" data-anchor-id="post-hoc">Post Hoc</h3>
-<ul>
-<li><a href="./tukey_hsd.html">Tukey HSD</a></li>
-<li><a href="./tukey_kramer.html">Tukey Kramer</a></li>
-</ul>
-</section>
-</section>
-<section id="unit-3" class="level2">
-<h2 class="anchored" data-anchor-id="unit-3">Unit 3</h2>
-<ul>
-<li><a href="./multivariate_regression.html">Multivariate Regression</a></li>
-<li><a href="./model_selection.html">Model Selection</a></li>
-<li><a href="./variable_importance.html">Variable Importance</a></li>
-<li><a href="./ancova.html">ANCOVA</a></li>
-<li><a href="./similarities_between_anovaancova_and_linear_regression.html">Similarities between ANOVA/ANCOVA and Linear Regression</a></li>
-<li><a href="./interaction_term.html">Interaction Term</a></li>
-<li><a href="./fixed_vs_random_effects.html">Fixed vs Random Effects</a></li>
-<li><a href="./mixed_models.html">Mixed Models</a></li>
-</ul>
-</section>
-<section id="misc" class="level2">
-<h2 class="anchored" data-anchor-id="misc">Misc</h2>
-<ul>
-<li><a href="./plots.html">Plots</a></li>
-</ul>
-</section>
-<section id="todo" class="level2">
-<h2 class="anchored" data-anchor-id="todo">TODO</h2>
-<ul>
-<li>Answer some questions:
-<ul>
-<li><a href="./multivariate_regression.html#steps-in-running-a-multivariate-regression">Multivariate Regression</a>
-<ul class="task-list">
-<li><label><input type="checkbox">In bullet 3, figure out what <code>use='complete.obs'</code> does in the function.</label></li>
-<li><label><input type="checkbox">In bullet 5, explain more about the <code>vif</code> function in R.</label></li>
-</ul></li>
-</ul></li>
-<li>Assumptions of each test
-<ul class="task-list">
-<li><label><input type="checkbox" checked="">T-test</label>
-<ul class="task-list">
-<li><label><input type="checkbox" checked="">Data is randomly selected from the population</label>
-<ul>
-<li>Assume True</li>
-</ul></li>
-<li><label><input type="checkbox" checked="">Observations are independent from each other</label>
-<ul>
-<li>Assume True</li>
-</ul></li>
-<li><label><input type="checkbox" checked="">Data is normal / sample size is large enough.</label>
-<ul>
-<li>Shapiro-Wilk normality test</li>
-</ul></li>
-<li><label><input type="checkbox" checked="">Equal variance in response data</label>
-<ul class="task-list">
-<li><label><input type="checkbox" checked=""><code>var.test</code> - H_o: Variance is equal</label></li>
-</ul></li>
-</ul></li>
-<li><label><input type="checkbox">Chi-Square</label>
-<ul class="task-list">
-<li><label><input type="checkbox">No assumptions made about the data?</label></li>
-</ul></li>
-<li><label><input type="checkbox">ANOVA/MANOVA</label>
-<ul class="task-list">
-<li><label><input type="checkbox">Each level’s response variables are normally distributed</label>
-<ul class="task-list">
-<li><label><input type="checkbox">Shapiro-Wilk normality test</label>
-<ul class="task-list">
-<li><label><input type="checkbox">Null hypothesis - Data is normally distributed</label></li>
-</ul></li>
-</ul></li>
-<li><label><input type="checkbox">Each level’s response data has the same variance</label>
-<ul>
-<li>LeveneTest
-<ul>
-<li>H_0 - Variance is equal</li>
-</ul></li>
-</ul></li>
-<li><label><input type="checkbox">Samples must be independent from each other</label>
-<ul>
-<li>Assume True</li>
-</ul></li>
-</ul></li>
-<li><label><input type="checkbox">Post-hoc tests</label>
-<ul class="task-list">
-<li><label><input type="checkbox">TukeyHSD</label>
-<ul class="task-list">
-<li><label><input type="checkbox">Same as T-test/ANOVA</label></li>
-<li><label><input type="checkbox">Data sets must be of equal length</label></li>
-</ul></li>
-</ul></li>
-<li><label><input type="checkbox">Linear Regression</label>
-<ul class="task-list">
-<li><label><input type="checkbox">Linear relationship between variable</label>
-<ul class="task-list">
-<li><label><input type="checkbox">Plot data and look to see if the data is linear</label></li>
-</ul></li>
-<li><label><input type="checkbox">There is constant variance of the errors (error are homescedastic)</label>
-<ul class="task-list">
-<li><label><input type="checkbox"><code>ncvTest</code> - H_0 - errors are homoscedastic</label></li>
-</ul></li>
-<li><label><input type="checkbox">Error are statistically independent</label>
-<ul class="task-list">
-<li><label><input type="checkbox">Plot: x = fitted values, y = residuals (error), line y = 0</label></li>
-<li><label><input type="checkbox">Look For patterns</label></li>
-</ul></li>
-<li><label><input type="checkbox">Error are normally distributed</label>
-<ul class="task-list">
-<li><label><input type="checkbox"><code>qqPlot</code> - Points are within the bounded area.</label>
-<ul class="task-list">
-<li><label><input type="checkbox">What do the output numbers mean?</label></li>
-</ul></li>
-<li><label><input type="checkbox"><code>shapiro.test(residuals)</code> - H_0 - Variance is equal</label></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
 
 
 </section>
